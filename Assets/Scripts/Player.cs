@@ -18,11 +18,13 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    private Coroutine crtCameraZoom;
+    private Coroutine crtTransition;
     private float cameraZoomedOutSize;
     private float cameraZoomedInSize;
-    private const float cameraZoomTime = 1;
+    private const float transitionTime = 1;
     private const float cameraZoomFactor = 2;
+
+    private MusicManager musicManager;
 
     private void Start() {
         sr = GetComponent<SpriteRenderer>();
@@ -30,6 +32,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         cameraZoomedInSize = Camera.main.orthographicSize;
         cameraZoomedOutSize = cameraZoomedInSize * cameraZoomFactor;
+        musicManager = FindObjectOfType<MusicManager>();
     }
 
     private void Update() {
@@ -92,8 +95,9 @@ public class Player : MonoBehaviour
         if (other.CompareTag("BoatFreezer"))
         {
             other.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-            TryStopCoroutine(crtCameraZoom);
-            crtCameraZoom = StartCoroutine(ZoomCamera(cameraZoomedOutSize));
+            TryStopCoroutine(crtTransition);
+            crtTransition = StartCoroutine(Transition(cameraZoomedOutSize));
+            musicManager.SetMusic(musicManager.boatMusicSrc);
         }
     }
 
@@ -108,8 +112,9 @@ public class Player : MonoBehaviour
         if (other.CompareTag("BoatFreezer"))
         {
             other.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            TryStopCoroutine(crtCameraZoom);
-            crtCameraZoom = StartCoroutine(ZoomCamera(cameraZoomedInSize));
+            TryStopCoroutine(crtTransition);
+            crtTransition = StartCoroutine(Transition(cameraZoomedInSize));
+            musicManager.SetMusic(musicManager.mainIslandMusicSrc);
         }
     }
 
@@ -121,14 +126,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    private IEnumerator ZoomCamera(float newSize)
+    private IEnumerator Transition(float newCameraSize)
     {
         float oldSize = Camera.main.orthographicSize;
-        for (float t = 0; t < cameraZoomTime; t += Time.deltaTime)
+        for (float t = 0; t < transitionTime; t += Time.deltaTime)
         {
-            Camera.main.orthographicSize = Mathf.Lerp(oldSize, newSize, t / cameraZoomTime);
+            Camera.main.orthographicSize = Mathf.Lerp(oldSize, newCameraSize, t / transitionTime);
             yield return null;
         }
-        Camera.main.orthographicSize = newSize;
+        Camera.main.orthographicSize = newCameraSize;
     }
 }
