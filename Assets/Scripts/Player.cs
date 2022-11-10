@@ -26,6 +26,13 @@ public class Player : MonoBehaviour
 
     private MusicManager musicManager;
 
+    private Coroutine crtPush;
+    private const float pushTime = 0.3f;
+
+    private int coins = 0;
+
+    private NPC interactableNPC;
+
     private void Start() {
         sr = GetComponent<SpriteRenderer>();
         standSprite = sr.sprite;
@@ -48,6 +55,10 @@ public class Player : MonoBehaviour
                 sr.sprite = walkSpriteUsed ? walkSprite : standSprite;
             }
         }
+        else
+        {
+            sr.sprite = walkSprite;
+        }
 
         if (inputX < 0)
         {
@@ -56,6 +67,14 @@ public class Player : MonoBehaviour
         else if (inputX > 0)
         {
             sr.flipX = false;
+        }
+
+        if (Input.GetButtonDown("Interact"))
+        {
+            if (interactableNPC != null)
+            {
+                interactableNPC.Interact();
+            }
         }
     }
 
@@ -71,6 +90,24 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
+
+        Pushable pushable = other.GetComponent<Pushable>();
+        if (pushable != null)
+        {
+            TryStopCoroutine(crtPush);
+            crtPush = StartCoroutine(Push(pushable, -collision.GetContact(0).normal));
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        GameObject other = collision.gameObject;
+
+        Pushable pushable = other.GetComponent<Pushable>();
+        if (pushable != null)
+        {
+            TryStopCoroutine(crtPush);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -99,6 +136,27 @@ public class Player : MonoBehaviour
             crtTransition = StartCoroutine(Transition(cameraZoomedOutSize));
             musicManager.SetMusic(musicManager.boatMusicSrc);
         }
+        ButtonPad buttonPad = other.GetComponent<ButtonPad>();
+        if (buttonPad != null)
+        {
+            buttonPad.Enter();
+        }
+        ResetButton resetButton = other.GetComponent<ResetButton>();
+        if (resetButton != null)
+        {
+            resetButton.ResetPuzzle();
+        }
+        Coin coin = other.GetComponent<Coin>();
+        if (coin != null)
+        {
+            coins += coin.value;
+            Destroy(other);
+        }
+        NPC npc = other.GetComponent<NPC>();
+        if (npc != null)
+        {
+            interactableNPC = npc;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -115,6 +173,16 @@ public class Player : MonoBehaviour
             TryStopCoroutine(crtTransition);
             crtTransition = StartCoroutine(Transition(cameraZoomedInSize));
             musicManager.SetMusic(musicManager.mainIslandMusicSrc);
+        }
+        ButtonPad buttonPad = other.GetComponent<ButtonPad>();
+        if (buttonPad != null)
+        {
+            buttonPad.Exit();
+        }
+        NPC npc = other.GetComponent<NPC>();
+        if (npc != null && interactableNPC == npc)
+        {
+            interactableNPC = null;
         }
     }
 
@@ -135,5 +203,29 @@ public class Player : MonoBehaviour
             yield return null;
         }
         Camera.main.orthographicSize = newCameraSize;
+    }
+
+    private IEnumerator Push(Pushable pushable, Vector2 direction)
+    {
+        //keep checking until moved in same dir for uninterrupted pushTime
+        float timer = pushTime;
+        while (true)
+        {
+            if (timer <= 0)
+            {
+                pushable.PushDirection(direction);
+                break;
+            }
+            Vector2 moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            if (Vector2.Dot(moveDir, direction) > 0)
+            {
+                timer -= Time.deltaTime;
+            }
+            else
+            {
+                timer = pushTime;
+            }
+            yield return null;
+        }
     }
 }

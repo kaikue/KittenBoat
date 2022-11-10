@@ -11,9 +11,11 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 [x] The boat is hard to control precisely.
 [ ] There must be island gameplay and boat gameplay.
 	- island gameplay
-		- push rocks around sokoban style
 		- open up cave doors
-		- reset button on each island
+			- each puzzle has its own condition (script derived from parent puzzle class)
+			- caves contain treasure
+		- talkable npcs
+			- choices that can trigger different actions
 		- puzzles:
 			- push rocks into holes
 			- push rocks into symmetric pattern as inaccessible part
@@ -27,6 +29,8 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- drop rock onto npc in water?
 			- dig for buried treasure??
 			- secret path in rock spikes
+			- npc on one island tells you about solution/buried treasure on another
+			- facilitate npc romance
 		- deepwater islands (need upgrade): colored gems
 			- push gems into 4 corners of diamond island corresponding to boat directions
 			- push gems into order according to npc dance
@@ -38,11 +42,14 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- wind?
 		- jellyfish
 [ ] The goal is only to get money and buy expensive items.
+	- each shopkeeper sells item(s) through dialog- choose item or cancel
+		- maybe a shopkeeper sells a second item or upgrade afterwards
+	- when you buy an item there's a 30% chance a crab will steal it and you have to chase down the crab
+		- the crab chooses a few random grid paths, turning randomly a few times until it hits the wall, and whichever one has the furthest average distance from the player it follows. It repeats once it hits the wall. You get the item when you catch it
 	- the good items look like youll have to grind a lot but theres an island at the end with a lot of platinum?
-	- Copper = 1, Silver = 3, Gold = 5, Platinum = 100
 	- use gems directly? smuggling?
 	- shop
-		- shopkeeper(s?)- octopus? frog? turtle?
+		- shopkeeper(s?)- octopus? frog? turtle? flamingo?
 		- items
 			- Pirate Hat
 			- Eye Patch
@@ -52,6 +59,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- Strengthened Hull (deepwater upgrade)
 			- Winner's Trophy
 [ ] When you die, you have to rebuild the boat by playing a puzzle game style sequence.
+	- boat trivia?
 [ ] When you try to buy from the shop there's a random chance something bad happens.
 [ ] There is an enemy (jellyfish) who appears when the timer runs out and tries to get you.
 	- the jellyfish has a funny evil poem he says to you?
@@ -59,16 +67,19 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- shoot cannons by stepping on buttons
 
 - Misc
-	- movement pads visual press
 	- set island music based on area
 	- start/end menus
 		- menu music- Pirate1 Theme1
 		- ending music- Treasure Hunter
+	- animate water tiles?
 - Sounds
 	- waves!
-	- boat button press/unpress?
+	- coin collect
+	- button press/unpress
+	- rock push
+	- fill pit
+	- reset button activate
 	- cat meows?
-	- rock push etc.
 
 ## Credits
 
