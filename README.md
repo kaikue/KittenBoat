@@ -67,6 +67,12 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- shoot cannons by stepping on buttons
 
 - Misc
+	- dialog
+		- background
+		- choices
+		- fix button prompt starting as gamepad (global check)
+		- make text appear instantly
+	- unmute music
 	- set island music based on area
 	- start/end menus
 		- menu music- Pirate1 Theme1
@@ -82,6 +88,8 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 	- cat meows?
 
 ## Credits
+
+Font: Softsquare Mono by Chevy Ray https://chevyray.itch.io/pixel-fonts
 
 ### Music
 

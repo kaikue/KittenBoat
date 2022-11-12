@@ -6,8 +6,9 @@ public class NPC : MonoBehaviour
 {
     public Dialog dialog;
 
-    public void Interact()
+    public void Interact(Player player)
     {
-        Instantiate(dialog);
+        Dialog newDialog = Instantiate(dialog).GetComponent<Dialog>();
+        newDialog.player = player;
     }
 }

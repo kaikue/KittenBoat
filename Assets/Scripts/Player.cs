@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     private int coins = 0;
 
     private NPC interactableNPC;
+    private bool talking;
 
     private void Start() {
         sr = GetComponent<SpriteRenderer>();
@@ -45,45 +46,60 @@ public class Player : MonoBehaviour
     private void Update() {
         inputX = Input.GetAxis("Horizontal");
         inputY = Input.GetAxis("Vertical");
-        if (inputX != 0 || inputY != 0)
-        {
-            walkTimer += Time.deltaTime;
-            if (walkTimer > walkTime)
-            {
-                walkTimer = 0;
-                walkSpriteUsed = !walkSpriteUsed;
-                sr.sprite = walkSpriteUsed ? walkSprite : standSprite;
-            }
-        }
-        else
+        if (talking)
         {
             sr.sprite = walkSprite;
         }
-
-        if (inputX < 0)
+        else
         {
-            sr.flipX = true;
-        }
-        else if (inputX > 0)
-        {
-            sr.flipX = false;
-        }
-
-        if (Input.GetButtonDown("Interact"))
-        {
-            if (interactableNPC != null)
+            if (inputX != 0 || inputY != 0)
             {
-                interactableNPC.Interact();
+                walkTimer += Time.deltaTime;
+                if (walkTimer > walkTime)
+                {
+                    walkTimer = 0;
+                    walkSpriteUsed = !walkSpriteUsed;
+                    sr.sprite = walkSpriteUsed ? walkSprite : standSprite;
+                }
+            }
+            else
+            {
+                sr.sprite = walkSprite;
+            }
+
+            if (inputX < 0)
+            {
+                sr.flipX = true;
+            }
+            else if (inputX > 0)
+            {
+                sr.flipX = false;
+            }
+
+            if (Input.GetButtonDown("Interact"))
+            {
+                if (interactableNPC != null)
+                {
+                    interactableNPC.Interact(this);
+                    talking = true;
+                }
             }
         }
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(inputX, inputY) * walkSpeed;
-        if (transform.parent != null && transform.parent.GetComponent<Rigidbody2D>() != null)
+        if (talking)
         {
-            rb.velocity += transform.parent.GetComponent<Rigidbody2D>().velocity;
+            rb.velocity = Vector2.zero;
+        }
+        else
+        {
+            rb.velocity = new Vector2(inputX, inputY) * walkSpeed;
+            if (transform.parent != null && transform.parent.GetComponent<Rigidbody2D>() != null)
+            {
+                rb.velocity += transform.parent.GetComponent<Rigidbody2D>().velocity;
+            }
         }
     }
 
@@ -227,5 +243,10 @@ public class Player : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    public void StopTalking()
+    {
+        talking = false;
     }
 }

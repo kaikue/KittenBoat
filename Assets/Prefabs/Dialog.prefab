@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1ade64db28f924084b532b1533e51f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textObj: {fileID: 0}
+  textObj: {fileID: 6872278571646463872}
   dialogLines: []
 --- !u!1 &6872278572841427615
 GameObject:

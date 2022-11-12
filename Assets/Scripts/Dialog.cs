@@ -27,6 +27,8 @@ public class Dialog : MonoBehaviour
     public TextMeshProUGUI textObj;
     private bool progressing = true;
     private float charWaitTimer = 0;
+    [HideInInspector]
+    public Player player;
 
     public DialogLine[] dialogLines;
 
@@ -73,7 +75,7 @@ public class Dialog : MonoBehaviour
         }
         string shownText = currentText.Substring(0, posInLine);
         string hiddenText = currentText.Substring(posInLine, currentText.Length - posInLine);
-        textObj.text = shownText + "<color=black>" + hiddenText + "</color>";
+        textObj.text = shownText + "<color=#00000000>" + hiddenText + "</color>";
     }
 
     private void AdvanceText()
@@ -82,6 +84,10 @@ public class Dialog : MonoBehaviour
         currentLine++;
         if (currentLine >= dialogLines.Length)
 		{
+            if (player != null)
+            {
+                player.StopTalking();
+            }
             Destroy(gameObject);
             return;
 		}
