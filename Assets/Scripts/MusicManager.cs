@@ -8,6 +8,7 @@ public class MusicManager : MonoBehaviour
     public AudioSource mainIslandMusicSrc;
     public AudioSource puzzleIslandMusicSrc;
     public AudioSource shopMusicSrc;
+    public AudioSource crabMusicSrc;
     public AudioSource deepIslandMusicSrc;
     public AudioSource bossMusicSrc;
 
@@ -17,6 +18,7 @@ public class MusicManager : MonoBehaviour
 
     private Coroutine crtFadeMusic;
     private AudioSource currentMusicSrc;
+    private AudioSource overrideMusicSrc;
 
     private void Start()
     {
@@ -39,11 +41,34 @@ public class MusicManager : MonoBehaviour
 
     public void SetMusic(AudioSource newMusic)
     {
+        if (overrideMusicSrc != null) return;
+
         if (crtFadeMusic != null)
         {
             StopCoroutine(crtFadeMusic);
         }
         StartCoroutine(FadeMusic(newMusic));
+    }
+
+    public void SetMusicOverride(AudioSource newMusic)
+    {
+        if (crtFadeMusic != null)
+        {
+            StopCoroutine(crtFadeMusic);
+        }
+        if (currentMusicSrc) {
+            currentMusicSrc.Pause();
+        }
+
+        overrideMusicSrc = newMusic;
+        overrideMusicSrc.Play();
+    }
+
+    public void StopMusicOverride()
+    {
+        overrideMusicSrc.Stop();
+        overrideMusicSrc = null;
+        currentMusicSrc.Play();
     }
 
     private IEnumerator FadeMusic(AudioSource newSrc)

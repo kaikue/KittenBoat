@@ -173,6 +173,13 @@ public class Player : MonoBehaviour
         {
             interactableNPC = npc;
         }
+        Crab crab = other.GetComponent<Crab>();
+        if (crab != null)
+        {
+            print("caught crab");
+            musicManager.StopMusicOverride();
+            Destroy(other);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

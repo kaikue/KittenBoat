@@ -12,11 +12,6 @@ public class Dialog : MonoBehaviour
 	{
         public string text;
         public UnityEvent lineEvent; //optional, plays on end / when chosen
-    }
-
-    [System.Serializable]
-    public class DialogChoice : DialogLine
-    {
         public DialogLine[] choices;
     }
 
