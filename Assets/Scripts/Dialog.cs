@@ -11,14 +11,15 @@ public class Dialog : MonoBehaviour
     public class DialogLine
 	{
         public string text;
-        public UnityEvent<object> lineEvent;
-        public object lineEventArg;
+        public UnityEvent<string> lineEvent;
     }
 
     private int currentLine = 0;
     public TextMeshProUGUI textObj;
     [HideInInspector]
     public Player player;
+    [HideInInspector]
+    public NPC npc;
 
     public DialogLine[] dialogLines;
 
@@ -47,7 +48,7 @@ public class Dialog : MonoBehaviour
     {
         if (dialogLines[currentLine].lineEvent != null)
         {
-            dialogLines[currentLine].lineEvent.Invoke(dialogLines[currentLine].lineEventArg);
+            dialogLines[currentLine].lineEvent.Invoke(""); //gets overwritten by editor input
         }
         currentLine++;
         if (currentLine >= dialogLines.Length)
@@ -76,11 +77,18 @@ public class Dialog : MonoBehaviour
     {
         Dialog newDialog = Instantiate(dialog).GetComponent<Dialog>();
         newDialog.player = player;
+        newDialog.npc = npc;
     }
 
     public void ShowDialogChoice(DialogChoice dialogChoice)
     {
         DialogChoice newDialogChoice = Instantiate(dialogChoice).GetComponent<DialogChoice>();
         newDialogChoice.player = player;
+        newDialogChoice.npc = npc;
+    }
+
+    public void SetNPCFlag(string flag)
+    {
+        npc.SetFlag(flag);
     }
 }

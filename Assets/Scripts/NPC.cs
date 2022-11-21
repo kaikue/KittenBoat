@@ -5,10 +5,27 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     public Dialog dialog;
+    protected HashSet<string> flags;
 
-    public void Interact(Player player)
+    protected virtual void Start()
     {
-        Dialog newDialog = Instantiate(dialog).GetComponent<Dialog>();
+        flags = new HashSet<string>();
+    }
+
+    public virtual void Interact(Player player)
+    {
+        OpenDialog(dialog, player);
+    }
+
+    protected void OpenDialog(Dialog d, Player player)
+    {
+        Dialog newDialog = Instantiate(d).GetComponent<Dialog>();
         newDialog.player = player;
+        newDialog.npc = this;
+    }
+
+    public virtual void SetFlag(string flag)
+    {
+        flags.Add(flag);
     }
 }

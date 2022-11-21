@@ -53,11 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[0].text
-      value: I'm just the test NPC.
+      value: You want me to move? No, I'm comfortable here...
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[1].text
@@ -109,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[0].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TestAction
+      value: SetNPCFlag
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[1].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -125,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[0].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: testing
+      value: talked2
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[1].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474460, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: m_Name
-      value: TestDialog
+      value: Rock2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}

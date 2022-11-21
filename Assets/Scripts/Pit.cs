@@ -15,9 +15,9 @@ public class Pit : Resettable
         filled = true;
     }
 
-    public override void Reset()
+    public override void ResetObj()
     {
-        base.Reset();
+        base.ResetObj();
         filled = false;
     }
 }

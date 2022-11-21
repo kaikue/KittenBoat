@@ -78,6 +78,11 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 
 - Misc
 	- puzzles
+		- conditions- subtypes
+			- all hidden spots filled
+		- cave door opens
+			- cave ceiling vanishes to show player when inside
+			- cave floor tiles in land tileset underneath door/ceiling
 	- unmute music
 	- button tutorials
 		- movement
@@ -94,6 +99,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 	- rock push
 	- fill pit
 	- reset button activate
+	- puzzle complete
 	- cat meows?
 
 ## Credits

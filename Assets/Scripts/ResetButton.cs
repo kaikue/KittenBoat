@@ -12,8 +12,8 @@ public class ResetButton : MonoBehaviour
         puzzle = GetComponentInParent<Puzzle>();
     }
 
-    public void ResetPuzzle()
+    public virtual void ResetPuzzle()
     {
-        puzzle.Reset();
+        puzzle.ResetPuzzle();
     }
 }

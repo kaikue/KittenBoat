@@ -11,8 +11,7 @@ public class DialogChoice : MonoBehaviour
     {
         public GameObject ui;
         public string text;
-        public UnityEvent<object> chosenEvent;
-        public object chosenEventArg;
+        public UnityEvent<string> chosenEvent;
     }
 
     public string promptText;
@@ -23,6 +22,8 @@ public class DialogChoice : MonoBehaviour
     private int selectedChoice;
     [HideInInspector]
     public Player player;
+    [HideInInspector]
+    public NPC npc;
 
     private void Start()
     {
@@ -73,7 +74,7 @@ public class DialogChoice : MonoBehaviour
         {
             if (choices[selectedChoice].chosenEvent != null)
             {
-                choices[selectedChoice].chosenEvent.Invoke(choices[selectedChoice].chosenEventArg);
+                choices[selectedChoice].chosenEvent.Invoke(""); //gets overwritten by editor input
             }
             if (player != null)
             {
@@ -92,11 +93,18 @@ public class DialogChoice : MonoBehaviour
     {
         Dialog newDialog = Instantiate(dialog).GetComponent<Dialog>();
         newDialog.player = player;
+        newDialog.npc = npc;
     }
 
     public void ShowDialogChoice(DialogChoice dialogChoice)
     {
         DialogChoice newDialogChoice = Instantiate(dialogChoice).GetComponent<DialogChoice>();
         newDialogChoice.player = player;
+        newDialogChoice.npc = npc;
+    }
+
+    public void SetNPCFlag(string flag)
+    {
+        npc.SetFlag(flag);
     }
 }

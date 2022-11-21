@@ -20,7 +20,7 @@ public class Resettable : MonoBehaviour
         }
     }
 
-    public virtual void Reset()
+    public virtual void ResetObj()
     {
         transform.position = startPos;
         if (boxCollider != null)
