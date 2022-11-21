@@ -81,7 +81,6 @@ public class Player : MonoBehaviour
                 if (interactableNPC != null)
                 {
                     interactableNPC.Interact(this);
-                    talking = true;
                 }
             }
         }
@@ -250,6 +249,11 @@ public class Player : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    public void StartTalking()
+    {
+        talking = true;
     }
 
     public void StopTalking()

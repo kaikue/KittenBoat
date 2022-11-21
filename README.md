@@ -14,8 +14,6 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- open up cave doors
 			- each puzzle has its own condition (script derived from parent puzzle class)
 			- caves contain treasure
-		- talkable npcs
-			- choices that can trigger different actions
 		- puzzles:
 			- push rocks into holes
 			- push rocks into symmetric pattern as inaccessible part
@@ -51,10 +49,15 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 	- use gems directly? smuggling?
 	- shop
 		- shopkeepers
-			-frog
-			-turtle- sells hat
-			-flamingo- sells boots
-			-octopus- sells hook
+			- frog
+			- turtle- sells hat
+			- flamingo- sells boots
+			- octopus- sells hook
+			- *parrot*- sells eyepatch
+			- *snake*
+			- *monkey*
+			- *?*- sends letter to penguin
+			- penguin- receives letter
 		- items
 			- Pirate Hat
 			- Eye Patch
@@ -64,6 +67,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- Strengthened Hull (deepwater upgrade)
 			- Winner's Trophy
 [ ] When you die, you have to rebuild the boat by playing a puzzle game style sequence.
+	- interact prompt
 	- boat trivia?
 [ ] When you try to buy from the shop there's a random chance something bad happens.
 	- when you buy an item there's a 30% chance a crab will steal it and you have to chase down the crab (give him a little head start)
@@ -73,16 +77,16 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- shoot cannons by stepping on buttons
 
 - Misc
-	- dialog
-		- background
-		- choices
-		- fix button prompt starting as gamepad (global check)
-		- make text appear instantly
+	- puzzles
 	- unmute music
+	- button tutorials
+		- movement
+		- interact (first NPC)
 	- set island music based on area
 	- start/end menus
 		- menu music- Pirate1 Theme1
 		- ending music- Treasure Hunter
+	- fix button prompt starting as gamepad? (global check)
 	- animate water tiles?
 - Sounds
 	- coin collect
