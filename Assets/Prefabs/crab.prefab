@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   altSprite: {fileID: 21300000, guid: d16cd668f5f6a4b43989b6d104caa409, type: 3}
+  spawnedDialog: {fileID: 464618387356911571, guid: ce2c0cdf008100e4095957fb468e06e1, type: 3}

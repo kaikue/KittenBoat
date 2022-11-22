@@ -349,6 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textObj: {fileID: 6872278571646463872}
   player: {fileID: 0}
+  npc: {fileID: 0}
   dialogLines: []
 --- !u!1 &6872278572841427615
 GameObject:

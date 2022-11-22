@@ -5,6 +5,7 @@ using UnityEngine;
 public class Crab : MonoBehaviour
 {
     public Sprite altSprite;
+    public GameObject spawnedDialog;
 
     private const float speed = 7;
 
@@ -15,6 +16,7 @@ public class Crab : MonoBehaviour
     private bool walkSpriteUsed = false;
 
     private Player player;
+    private GameObject item;
 
     private const int pathCount = 5;
     private const int maxPathLength = 30;
@@ -33,6 +35,8 @@ public class Crab : MonoBehaviour
         FindPaths();
         MusicManager musicManager = FindObjectOfType<MusicManager>();
         musicManager.SetMusicOverride(musicManager.crabMusicSrc);
+        Dialog newDialog = Instantiate(spawnedDialog).GetComponent<Dialog>();
+        newDialog.player = player;
     }
 
     private void Update()
@@ -102,7 +106,7 @@ public class Crab : MonoBehaviour
 
     private bool IsFree(Vector2 pos)
     {
-        Collider2D collider = Physics2D.OverlapBox(pos, size, 0, LayerMask.GetMask("RockTiles", "WaterTiles", "Pushable", "Pit"));
+        Collider2D collider = Physics2D.OverlapBox(pos, size, 0, LayerMask.GetMask("Default", "RockTiles", "WaterTiles", "Pushable", "Pit"));
         return collider == null;
     }
 
@@ -126,5 +130,16 @@ public class Crab : MonoBehaviour
             }
         }
         return bestPath;
+    }
+
+    public void SetItem(GameObject item)
+    {
+        this.item = item;
+    }
+
+    public void Catch()
+    {
+        if (item) Instantiate(item);
+        Destroy(gameObject);
     }
 }

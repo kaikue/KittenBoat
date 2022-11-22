@@ -28,4 +28,9 @@ public class NPC : MonoBehaviour
     {
         flags.Add(flag);
     }
+
+    public virtual void DoAction(string action)
+    {
+        print("TODO: implement " + action);
+    }
 }

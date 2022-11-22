@@ -8,6 +8,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 
 [x] A game that you hate but it has a cute kitten in it, so it's impossible to insult the kitten.
 [x] The kitten can ride a boat sometimes.
+[x] When you try to buy from the shop there's a random chance something bad happens.
 [x] The boat is hard to control precisely.
 [ ] There must be island gameplay and boat gameplay.
 	- island gameplay
@@ -18,63 +19,113 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- push rocks into holes
 			- push rocks into symmetric pattern as inaccessible part
 			- push rocks into 4 corners of diamond island
-			- drop rocks into water to form path
+			- sokobans
 			- push rock across 1 tile corner from boat
 			- talk to rock NPC next to hole multiple times ("Oh, I'm just a rock..." "You want me to move? No, I'm comfortable here...")
-			- secondary cave inside cave- solve puzzle, reset, push rock into cave
-			- lure enemy, break boat between islands, push rock across, repair boat
-				- easier version: smash against fixed hazard
-			- push rock onto reset button?
-			- hit reset button partway through (cube respawn?)
-			- drop rock onto npc in water?
-			- dig for buried treasure??
-			- secret path in rock spikes
-			- npc on one island tells you about solution/buried treasure on another
 			- facilitate npc romance
+			- secondary cave inside cave- solve puzzle, reset, push rock into cave
+			- ~~drop rocks into water to form path?~~
 		- deepwater islands (need upgrade): colored gems
 			- push gems into 4 corners of diamond island corresponding to boat directions
 			- push gems into order according to npc dance
-			- smuggle gem on boat
-			- shopkeeper that only takes gems?
+			- dig for buried gem from hint
+				- npc on one island tells you about buried treasure on another
+			- secret path in rock spikes
+			- lure enemy, break boat between islands, push rock across, repair boat
+				- easier version: smash against fixed hazard
+			- hit reset button partway through (cube respawn)
+				- separate reset buttons per color gem
+			- push gem onto reset button
+			- ~~smuggle gem on boat?~~
+			- ~~shopkeeper that only takes gems?~~
 	- boat gameplay
 		- boat breaks into tiles, need to repair
 		- dodge rocks
 		- dodge shark patrols
-		- wind?
+		- run from chasing enemies (despawn when too far away)
+		- ~~wind?~~
 		- jellyfish
 [ ] The goal is only to get money and buy expensive items.
-	- each shopkeeper sells item(s) through dialog- choose item or cancel
-		- maybe a shopkeeper sells a second item or upgrade afterwards
-	- the good items look like youll have to grind a lot but theres an island at the end with a lot of platinum?
-	- use gems directly? smuggling?
+	- ~~maybe a shopkeeper sells a second item or upgrade afterwards~~
+	- ~~use gems directly? smuggling?~~
 	- shop
 		- shopkeepers
-			- frog
+			- frog- explains talking/shops
+			- ✔ snake- explains monetary increments
+				- has one of each coin above him
 			- turtle- sells hat
+				- I found this cool hat on the beach.
+				- I don't need it, because my whole body is a hat.
+				- I'll sell it to you for 100 gold. >Buy/Don't
+				- [decline] That's alright. When you're as old as I am, rejection doesn't bother you any more.
+				- [not enough] I may be old, but I can see that you don't have enough gold.
+				- [buy] A kitten in a hat... this'll be one to write home about.
+				- [bought] To be honest, I don't know whether I'm a turtle or a tortoise...
 			- flamingo- sells boots
-			- octopus- sells hook
-			- *parrot*- sells eyepatch
-			- *snake*
-			- *monkey*
-			- *?*- sends letter to penguin
-			- penguin- receives letter
+				- Flamingos are natural experts on footwear.
+				- That's why we stand on one leg all the time. So we don't wear out our shoes.
+				- You can buy these stylish boots, for only 75 gold. >Buy/Don't
+				- [decline] That's okay. They're too hip for you anyway.
+				- [not enough] You don't have enough gold, and I don't do discounts.
+				- [buy] Wow. You're serving already.
+				- [bought] My leg is getting tired...
+			- parrot- sells eyepatch
+				- Caw! The most notorious pirates all wear eye patches!
+				- Because if they can plunder without depth perception, they must be a fearsome foe indeed!
+				- You can buy this eyepatch for a mere 25 gold! >Buy/Don't
+				- [decline] 
+				- [not enough] 
+				- [buy] 
+				- [bought] 
+			- ✔ octopus- sells hook
+			- sea serpent- sells reinforced hull (only to True Pirates (all 4 pirate apparel items))
+				- [not all 4 pirate items] I only speak to real pirates. You look like a landlubber.
+				- Wow, you look like a real pirate. Be warned, choppy seas up ahead...
+				- I can reinforce your ship's hull to navigate the deeper waters.
+				- But it'll cost you 250 gold. >Upgrade/Don't
+				- [decline] Not everyone is cut out for adventure.
+				- [not enough] Who are you trying to fool? Come back when you have 250 gold.
+				- [buy] Good luck out there, and watch out for sharks...
+				- [bought] I'm hungry... I wonder if Panera Bread takes pirate gold.
+			- otter- sends letter to penguin (on receipt, blush + unlock cave)
+			- penguin- receives letter (blush)
+			- *?*- tells you about hidden treasure
+			- *monkey*- dances directions of gems
+			- starfish cultist- sells jellyfish artifact
+				- His coming marks the end of days.
+				- If you wish to see him, you'll have to pay.
+				- [Buy the Jellyfish Statue for 500 gold?] Yes/No
+				- [decline] (nothing)
+				- [not enough] [Not enough gold.]
+				- [buy] (nothing)
+				- [bought] Across the oceans, he shall swim.
+				- 	With this chant, I honor him.
+			- manatee- sells Winner's Trophy for 9999 coins
+				- I won this trophy at a foosball tournament! It says "You're a True Winner!"
+				- You can buy it... for only 9999 gold! Hah! As if you'll ever get that much!
+				- [Buy the Winner's Trophy?] Buy/Don't
+				- I knew it! No one has that much gold!
+				- What... you're serious? I was just kidding, but all right... here you go!
+				- (I'm rich!!!)
+			- ~~*wizard?*- I am the wizard! Don't touch my Orb!~~
 		- items
-			- Pirate Hat
-			- Eye Patch
-			- Tail Hook
-			- Boots
-				- animate with walk
 			- Strengthened Hull (deepwater upgrade)
 			- Winner's Trophy
+	- progression
+		- all 4 pirate clothes (25+50+75+100=250)
+		- boat upgrade (250)
+		- jellyfish statue (500)
+		- winner's trophy (9999)
 [ ] When you die, you have to rebuild the boat by playing a puzzle game style sequence.
 	- interact prompt
 	- boat trivia?
-[ ] When you try to buy from the shop there's a random chance something bad happens.
-	- when you buy an item there's a 30% chance a crab will steal it and you have to chase down the crab (give him a little head start)
+	- turn blocks puzzle?
 [ ] There is an enemy (jellyfish) who appears when the timer runs out and tries to get you.
-	- the jellyfish has a funny evil poem he says to you?
-	- epic jellyfish boss battle at the end?? buy something that starts the timer
-		- shoot cannons by stepping on buttons
+	- place jellyfish trophy on island at bottom left corner
+	- get back on board and timer starts
+	- race away from it all the way across the map to top right corner where you can kill it (no dismounting boat)
+		- if it gets you you have to rebuild (puzzle) & get a little headstart
+	- when killed drops 9999 gold & platinum & gems
 
 - Misc
 	- puzzles
@@ -83,6 +134,12 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- cave door opens
 			- cave ceiling vanishes to show player when inside
 			- cave floor tiles in land tileset underneath door/ceiling
+	- boat stuff
+		- patrolling sharks
+			- open & close mouths
+			- move between points (square or back/forth)
+				- angle/flip to face next point
+		- puzzle game style sequence to rebuild? (shop music)
 	- unmute music
 	- button tutorials
 		- movement
@@ -100,6 +157,9 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 	- fill pit
 	- reset button activate
 	- puzzle complete
+	- dialog open/close
+	- dialog option swap
+	- item get (put audiosource on item get dialog prefab)
 	- cat meows?
 
 ## Credits

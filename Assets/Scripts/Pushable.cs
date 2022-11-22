@@ -22,7 +22,7 @@ public class Pushable : Resettable
     public void PushDirection(Vector2 direction)
     {
         Vector2 newPos = rb.position + direction.normalized;
-        Collider2D collider = Physics2D.OverlapBox(newPos, size, 0, LayerMask.GetMask("BoatWalls", "Player", "RockTiles", "WaterTiles", "Pushable"));
+        Collider2D collider = Physics2D.OverlapBox(newPos, size, 0, LayerMask.GetMask("Default", "BoatWalls", "Player", "RockTiles", "WaterTiles", "Pushable"));
         if (collider == null)
         {
             rb.MovePosition(newPos);

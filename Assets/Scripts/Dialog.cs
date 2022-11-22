@@ -63,7 +63,7 @@ public class Dialog : MonoBehaviour
         UpdateText();
     }
 
-    private void UpdateText()
+    public void UpdateText()
 	{
         textObj.text = dialogLines[currentLine].text;
     }
@@ -90,5 +90,20 @@ public class Dialog : MonoBehaviour
     public void SetNPCFlag(string flag)
     {
         npc.SetFlag(flag);
+    }
+
+    public void DoNPCAction(string action)
+    {
+        npc.DoAction(action);
+    }
+
+    public void ShowPlayerCoins()
+    {
+        player.ShowCoinsLong();
+    }
+
+    public void HidePlayerCoins()
+    {
+        player.ShowCoinsShort();
     }
 }

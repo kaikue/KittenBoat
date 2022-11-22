@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -10,7 +11,8 @@ public class Player : MonoBehaviour
     private SpriteRenderer sr;
     private const float walkTime = 0.2f;
     private float walkTimer = 0;
-    private bool walkSpriteUsed = false;
+    [HideInInspector]
+    public bool walkSpriteUsed = false;
     private const float walkSpeed = 3f;
 
     private float inputX;
@@ -29,7 +31,11 @@ public class Player : MonoBehaviour
     private Coroutine crtPush;
     private const float pushTime = 0.3f;
 
-    private int coins = 0;
+    [HideInInspector]
+    public int coins = 0;
+    public TextMeshProUGUI coinsText;
+    private Coroutine crtShowCoins;
+    public RectTransform coinsTransform;
 
     private NPC interactableNPC;
     private bool talking;
@@ -164,7 +170,7 @@ public class Player : MonoBehaviour
         Coin coin = other.GetComponent<Coin>();
         if (coin != null)
         {
-            coins += coin.value;
+            AddCoins(coin.value);
             Destroy(other);
         }
         NPC npc = other.GetComponent<NPC>();
@@ -175,9 +181,8 @@ public class Player : MonoBehaviour
         Crab crab = other.GetComponent<Crab>();
         if (crab != null)
         {
-            print("caught crab");
             musicManager.StopMusicOverride();
-            Destroy(other);
+            crab.Catch();
         }
     }
 
@@ -259,5 +264,49 @@ public class Player : MonoBehaviour
     public void StopTalking()
     {
         talking = false;
+    }
+
+    public void AddCoins(int value)
+    {
+        coins += value;
+        coinsText.text = Mathf.Clamp(coins, 0, 9999).ToString();
+        TryStopCoroutine(crtShowCoins);
+        crtShowCoins = StartCoroutine(ShowCoins(2));
+    }
+
+    public void ShowCoinsLong()
+    {
+        TryStopCoroutine(crtShowCoins);
+        crtShowCoins = StartCoroutine(ShowCoins(999));
+    }
+
+    public void ShowCoinsShort()
+    {
+        TryStopCoroutine(crtShowCoins);
+        crtShowCoins = StartCoroutine(ShowCoins(1));
+    }
+
+    private IEnumerator ShowCoins(float showTime)
+    {
+        int hideY = 260;
+        int showY = 185;
+        float startY = Mathf.Min(hideY, coinsTransform.anchoredPosition.y);
+        float moveTime = 0.5f;
+
+        for (float t = 0; t < moveTime; t += Time.deltaTime)
+        {
+            float y = Mathf.Lerp(startY, showY, t / moveTime);
+            coinsTransform.anchoredPosition = new Vector2(coinsTransform.anchoredPosition.x, y);
+            yield return null;
+        }
+        coinsTransform.anchoredPosition = new Vector2(coinsTransform.anchoredPosition.x, showY);
+        yield return new WaitForSeconds(showTime);
+        for (float t = 0; t < moveTime; t += Time.deltaTime)
+        {
+            float y = Mathf.Lerp(showY, hideY, t / moveTime);
+            coinsTransform.anchoredPosition = new Vector2(coinsTransform.anchoredPosition.x, y);
+            yield return null;
+        }
+        coinsTransform.anchoredPosition = new Vector2(coinsTransform.anchoredPosition.x, hideY);
     }
 }

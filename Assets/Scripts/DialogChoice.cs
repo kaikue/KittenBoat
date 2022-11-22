@@ -107,4 +107,19 @@ public class DialogChoice : MonoBehaviour
     {
         npc.SetFlag(flag);
     }
+
+    public void DoNPCAction(string action)
+    {
+        npc.DoAction(action);
+    }
+
+    public void ShowPlayerCoins()
+    {
+        player.ShowCoinsLong();
+    }
+
+    public void HidePlayerCoins()
+    {
+        player.ShowCoinsShort();
+    }
 }
