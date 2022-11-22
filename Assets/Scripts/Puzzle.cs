@@ -8,7 +8,7 @@ public class Puzzle : MonoBehaviour
     private bool completed = false;
     public CaveDoor caveDoor;
 
-    private void Start()
+    protected virtual void Start()
     {
         resettables = GetComponentsInChildren<Resettable>();
     }

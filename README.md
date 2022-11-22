@@ -6,15 +6,12 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 
 ## TODO
 
-[x] A game that you hate but it has a cute kitten in it, so it's impossible to insult the kitten.
-[x] The kitten can ride a boat sometimes.
-[x] When you try to buy from the shop there's a random chance something bad happens.
-[x] The boat is hard to control precisely.
-[ ] There must be island gameplay and boat gameplay.
+- [x] A game that you hate but it has a cute kitten in it, so it's impossible to insult the kitten.
+- [x] The kitten can ride a boat sometimes.
+- [x] When you try to buy from the shop there's a random chance something bad happens.
+- [x] The boat is hard to control precisely.
+- [ ] There must be island gameplay and boat gameplay.
 	- island gameplay
-		- open up cave doors
-			- each puzzle has its own condition (script derived from parent puzzle class)
-			- caves contain treasure
 		- puzzles:
 			- push rocks into holes
 			- push rocks into symmetric pattern as inaccessible part
@@ -24,6 +21,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- talk to rock NPC next to hole multiple times ("Oh, I'm just a rock..." "You want me to move? No, I'm comfortable here...")
 			- facilitate npc romance
 			- secondary cave inside cave- solve puzzle, reset, push rock into cave
+			- buried treasure- dig at X
 			- ~~drop rocks into water to form path?~~
 		- deepwater islands (need upgrade): colored gems
 			- push gems into 4 corners of diamond island corresponding to boat directions
@@ -36,16 +34,17 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- hit reset button partway through (cube respawn)
 				- separate reset buttons per color gem
 			- push gem onto reset button
+			- jelly zapper machine- farm piranhas
 			- ~~smuggle gem on boat?~~
 			- ~~shopkeeper that only takes gems?~~
 	- boat gameplay
 		- boat breaks into tiles, need to repair
 		- dodge rocks
 		- dodge shark patrols
-		- run from chasing enemies (despawn when too far away)
+		- run from chasing piranhas (despawn when too far away)
 		- ~~wind?~~
 		- jellyfish
-[ ] The goal is only to get money and buy expensive items.
+- [ ] The goal is only to get money and buy expensive items.
 	- ~~maybe a shopkeeper sells a second item or upgrade afterwards~~
 	- ~~use gems directly? smuggling?~~
 	- shop
@@ -57,7 +56,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 				- I found this cool hat on the beach.
 				- I don't need it, because my whole body is a hat.
 				- I'll sell it to you for 100 gold. >Buy/Don't
-				- [decline] That's alright. When you're as old as I am, rejection doesn't bother you any more.
+				- [decline] That's alright. When you're as old as I am, rejection doesn't bother you anymore.
 				- [not enough] I may be old, but I can see that you don't have enough gold.
 				- [buy] A kitten in a hat... this'll be one to write home about.
 				- [bought] To be honest, I don't know whether I'm a turtle or a tortoise...
@@ -78,7 +77,8 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 				- [buy] 
 				- [bought] 
 			- ✔ octopus- sells hook
-			- sea serpent- sells reinforced hull (only to True Pirates (all 4 pirate apparel items))
+			- sea serpent- sells reinforced hull
+				- custom shopkeeper script- no crab spawn (he is on the shore)
 				- [not all 4 pirate items] I only speak to real pirates. You look like a landlubber.
 				- Wow, you look like a real pirate. Be warned, choppy seas up ahead...
 				- I can reinforce your ship's hull to navigate the deeper waters.
@@ -90,6 +90,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- otter- sends letter to penguin (on receipt, blush + unlock cave)
 			- penguin- receives letter (blush)
 			- *?*- tells you about hidden treasure
+			- *?*- mad scientist operating jelly zapper (farm piranhas for gold)
 			- *monkey*- dances directions of gems
 			- starfish cultist- sells jellyfish artifact
 				- His coming marks the end of days.
@@ -116,30 +117,38 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- boat upgrade (250)
 		- jellyfish statue (500)
 		- winner's trophy (9999)
-[ ] When you die, you have to rebuild the boat by playing a puzzle game style sequence.
+- [ ] When you die, you have to rebuild the boat by playing a puzzle game style sequence.
 	- interact prompt
 	- boat trivia?
 	- turn blocks puzzle?
-[ ] There is an enemy (jellyfish) who appears when the timer runs out and tries to get you.
+- [ ] There is an enemy (jellyfish) who appears when the timer runs out and tries to get you.
 	- place jellyfish trophy on island at bottom left corner
 	- get back on board and timer starts
 	- race away from it all the way across the map to top right corner where you can kill it (no dismounting boat)
 		- if it gets you you have to rebuild (puzzle) & get a little headstart
+		- serpent disappears while this is happening
 	- when killed drops 9999 gold & platinum & gems
 
 - Misc
+	- allow push boulder into cave
+		- move npcs onto their own layer
+		- make crab, pushable check for that layer instead of default
+	- world
+		- deepwater barriers
+		- clean up island edges
+		- fill with water
+		- surround with rocks
 	- puzzles
 		- conditions- subtypes
 			- all hidden spots filled
-		- cave door opens
-			- cave ceiling vanishes to show player when inside
-			- cave floor tiles in land tileset underneath door/ceiling
 	- boat stuff
 		- patrolling sharks
 			- open & close mouths
 			- move between points (square or back/forth)
 				- angle/flip to face next point
+		- chasing piranhas
 		- puzzle game style sequence to rebuild? (shop music)
+		- floating treasure piles?
 	- unmute music
 	- button tutorials
 		- movement

@@ -6,9 +6,10 @@ public class AllPitsFilledPuzzle : Puzzle
 {
     private Pit[] pits;
 
-    private void Start()
+    protected override void Start()
     {
         pits = GetComponentsInChildren<Pit>();
+        base.Start();
     }
 
     protected override bool IsComplete()

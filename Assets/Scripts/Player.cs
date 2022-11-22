@@ -184,6 +184,11 @@ public class Player : MonoBehaviour
             musicManager.StopMusicOverride();
             crab.Catch();
         }
+        CaveCeiling caveCeiling = other.GetComponent<CaveCeiling>();
+        if (caveCeiling != null)
+        {
+            caveCeiling.Enter();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -210,6 +215,11 @@ public class Player : MonoBehaviour
         if (npc != null && interactableNPC == npc)
         {
             interactableNPC = null;
+        }
+        CaveCeiling caveCeiling = other.GetComponent<CaveCeiling>();
+        if (caveCeiling != null)
+        {
+            caveCeiling.Exit();
         }
     }
 
