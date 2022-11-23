@@ -15,5 +15,6 @@ public class ResetButton : MonoBehaviour
     public virtual void ResetPuzzle()
     {
         puzzle.ResetPuzzle();
+        GetComponent<AudioSource>().Play();
     }
 }

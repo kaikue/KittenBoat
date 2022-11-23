@@ -912,6 +912,9 @@ MonoBehaviour:
   uiPointer: {fileID: 8703543015390329465}
   player: {fileID: 0}
   npc: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 45cb7bf22ce9e7f4dbe33987698a737c, type: 3}
+  advanceSound: {fileID: 8300000, guid: 5632892ff0613c142b862be37c772845, type: 3}
+  selectSound: {fileID: 8300000, guid: 7ba83e4e005756b4b80115cc91cf19c8, type: 3}
 --- !u!224 &4007622825040491921 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6872278572841427611, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}

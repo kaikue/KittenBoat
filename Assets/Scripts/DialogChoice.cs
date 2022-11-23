@@ -25,6 +25,11 @@ public class DialogChoice : MonoBehaviour
     [HideInInspector]
     public NPC npc;
 
+    private AudioSource sfx;
+    public AudioClip openSound;
+    public AudioClip advanceSound;
+    public AudioClip selectSound;
+
     private void Start()
     {
         if (player != null)
@@ -35,6 +40,15 @@ public class DialogChoice : MonoBehaviour
         foreach (ChoiceSelection choice in choices)
         {
             choice.ui.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
+        }
+        sfx = GetComponent<AudioSource>();
+        if (FindObjectsOfType<Dialog>().Length + FindObjectsOfType<DialogChoice>().Length <= 1)
+        {
+            sfx.PlayOneShot(openSound);
+        }
+        else
+        {
+            sfx.PlayOneShot(advanceSound);
         }
     }
 
@@ -63,6 +77,7 @@ public class DialogChoice : MonoBehaviour
                     }
                 }
                 uiPointer.transform.position = choices[selectedChoice].ui.transform.position;
+                sfx.PlayOneShot(selectSound);
             }
         }
         else

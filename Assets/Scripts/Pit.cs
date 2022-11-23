@@ -13,6 +13,7 @@ public class Pit : Resettable
         sr.sprite = fillSprite;
         boxCollider.enabled = false;
         filled = true;
+        GetComponent<AudioSource>().Play();
     }
 
     public override void ResetObj()

@@ -18,6 +18,5 @@ public class CaveDoor : MonoBehaviour
     {
         boxCollider.enabled = false;
         sr.sprite = openSprite;
-        sr.sortingLayerName = "Flag";
     }
 }

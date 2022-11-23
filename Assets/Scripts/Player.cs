@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     private const float cameraZoomFactor = 2;
 
     private MusicManager musicManager;
+    private bool hubMusicZone;
+    private bool deepwaterMusicZone;
 
     private Coroutine crtPush;
     private const float pushTime = 0.3f;
@@ -40,6 +42,11 @@ public class Player : MonoBehaviour
     private NPC interactableNPC;
     private bool talking;
 
+    private AudioSource sfx;
+    public AudioClip sfxCoin;
+    public AudioClip sfxPush;
+    public AudioClip sfxDialogClose;
+
     private void Start() {
         sr = GetComponent<SpriteRenderer>();
         standSprite = sr.sprite;
@@ -47,6 +54,7 @@ public class Player : MonoBehaviour
         cameraZoomedInSize = Camera.main.orthographicSize;
         cameraZoomedOutSize = cameraZoomedInSize * cameraZoomFactor;
         musicManager = FindObjectOfType<MusicManager>();
+        sfx = GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -157,6 +165,14 @@ public class Player : MonoBehaviour
             crtTransition = StartCoroutine(Transition(cameraZoomedOutSize));
             musicManager.SetMusic(musicManager.boatMusicSrc);
         }
+        if (other.CompareTag("HubZone"))
+        {
+            hubMusicZone = true;
+        }
+        if (other.CompareTag("DeepwaterZone"))
+        {
+            deepwaterMusicZone = true;
+        }
         ButtonPad buttonPad = other.GetComponent<ButtonPad>();
         if (buttonPad != null)
         {
@@ -171,6 +187,7 @@ public class Player : MonoBehaviour
         if (coin != null)
         {
             AddCoins(coin.value);
+            sfx.PlayOneShot(sfxCoin);
             Destroy(other);
         }
         NPC npc = other.GetComponent<NPC>();
@@ -204,7 +221,15 @@ public class Player : MonoBehaviour
             other.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             TryStopCoroutine(crtTransition);
             crtTransition = StartCoroutine(Transition(cameraZoomedInSize));
-            musicManager.SetMusic(musicManager.mainIslandMusicSrc);
+            PlayLandMusic();
+        }
+        if (other.CompareTag("HubZone"))
+        {
+            hubMusicZone = false;
+        }
+        if (other.CompareTag("DeepwaterZone"))
+        {
+            deepwaterMusicZone = false;
         }
         ButtonPad buttonPad = other.GetComponent<ButtonPad>();
         if (buttonPad != null)
@@ -251,6 +276,7 @@ public class Player : MonoBehaviour
             if (timer <= 0)
             {
                 pushable.PushDirection(direction);
+                sfx.PlayOneShot(sfxPush);
                 break;
             }
             Vector2 moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -274,6 +300,10 @@ public class Player : MonoBehaviour
     public void StopTalking()
     {
         talking = false;
+        if (FindObjectsOfType<Dialog>().Length + FindObjectsOfType<DialogChoice>().Length <= 1)
+        {
+            sfx.PlayOneShot(sfxDialogClose);
+        }
     }
 
     public void AddCoins(int value)
@@ -318,5 +348,21 @@ public class Player : MonoBehaviour
             yield return null;
         }
         coinsTransform.anchoredPosition = new Vector2(coinsTransform.anchoredPosition.x, hideY);
+    }
+
+    private void PlayLandMusic()
+    {
+        if (deepwaterMusicZone)
+        {
+            musicManager.SetMusic(musicManager.deepIslandMusicSrc);
+        }
+        else if (hubMusicZone)
+        {
+            musicManager.SetMusic(musicManager.mainIslandMusicSrc);
+        }
+        else
+        {
+            musicManager.SetMusic(musicManager.puzzleIslandMusicSrc);
+        }
     }
 }

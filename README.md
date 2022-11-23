@@ -13,12 +13,12 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 - [ ] There must be island gameplay and boat gameplay.
 	- island gameplay
 		- puzzles:
-			- push rocks into holes
+			- ✔ tutorial- push rocks into holes
 			- push rocks into symmetric pattern as inaccessible part
 			- push rocks into 4 corners of diamond island
 			- sokobans
 			- push rock across 1 tile corner from boat
-			- talk to rock NPC next to hole multiple times ("Oh, I'm just a rock..." "You want me to move? No, I'm comfortable here...")
+			- talk to rock NPC next to hole multiple times
 			- facilitate npc romance
 			- secondary cave inside cave- solve puzzle, reset, push rock into cave
 			- buried treasure- dig at X
@@ -72,15 +72,16 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 				- Caw! The most notorious pirates all wear eye patches!
 				- Because if they can plunder without depth perception, they must be a fearsome foe indeed!
 				- You can buy this eyepatch for a mere 25 gold! >Buy/Don't
-				- [decline] 
-				- [not enough] 
-				- [buy] 
-				- [bought] 
+				- [decline] Suit yourself! Caw!
+				- [not enough] You tryin' to scam me? Caw! You need more gold!
+				- [buy] You'll be the terror of the high seas!
+				- [bought] I once served under Captain Blackbeard himself!
+				-	...but only after the name entered public domain.
 			- ✔ octopus- sells hook
 			- sea serpent- sells reinforced hull
 				- custom shopkeeper script- no crab spawn (he is on the shore)
 				- [not all 4 pirate items] I only speak to real pirates. You look like a landlubber.
-				- Wow, you look like a real pirate. Be warned, choppy seas up ahead...
+				- Wow, you look like a real pirate. Be warned, choppy seas out there...
 				- I can reinforce your ship's hull to navigate the deeper waters.
 				- But it'll cost you 250 gold. >Upgrade/Don't
 				- [decline] Not everyone is cut out for adventure.
@@ -89,10 +90,11 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 				- [bought] I'm hungry... I wonder if Panera Bread takes pirate gold.
 			- otter- sends letter to penguin (on receipt, blush + unlock cave)
 			- penguin- receives letter (blush)
-			- *?*- tells you about hidden treasure
+			- *mermaid?*- tells you about hidden treasure
+			- *?*- sells map?
 			- *?*- mad scientist operating jelly zapper (farm piranhas for gold)
 			- *monkey*- dances directions of gems
-			- starfish cultist- sells jellyfish artifact
+			- starfish cultist (in deepwater)- sells jellyfish artifact
 				- His coming marks the end of days.
 				- If you wish to see him, you'll have to pay.
 				- [Buy the Jellyfish Statue for 500 gold?] Yes/No
@@ -130,17 +132,24 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 	- when killed drops 9999 gold & platinum & gems
 
 - Misc
+	- puzzles
+		- condition- all hidden spots filled
+			- test
+		- sokobans
 	- allow push boulder into cave
 		- move npcs onto their own layer
 		- make crab, pushable check for that layer instead of default
+	- implement sea serpent npc & reinforced hull
+		- parent to boat, destroy deepwater barriers
 	- world
+		- lay out islands
+			- hidden spot puzzles
+		- place hub music & deepwater music zones
+		- distribute gold (500 each in shallow & deep)
 		- deepwater barriers
 		- clean up island edges
 		- fill with water
 		- surround with rocks
-	- puzzles
-		- conditions- subtypes
-			- all hidden spots filled
 	- boat stuff
 		- patrolling sharks
 			- open & close mouths
@@ -149,33 +158,29 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- chasing piranhas
 		- puzzle game style sequence to rebuild? (shop music)
 		- floating treasure piles?
-	- unmute music
 	- button tutorials
 		- movement
 		- interact (first NPC)
-	- set island music based on area
 	- start/end menus
 		- menu music- Pirate1 Theme1
 		- ending music- Treasure Hunter
 	- fix button prompt starting as gamepad? (global check)
 	- animate water tiles?
 - Sounds
-	- coin collect
 	- button press/unpress
-	- rock push
-	- fill pit
-	- reset button activate
-	- puzzle complete
-	- dialog open/close
-	- dialog option swap
-	- item get (put audiosource on item get dialog prefab)
 	- cat meows?
 
 ## Credits
 
 Font: Softsquare Mono by Chevy Ray https://chevyray.itch.io/pixel-fonts
 
-Wave sound: Ambience, Seaside Waves, Close, A by InspectorJ (www.jshaw.co.uk) of Freesound.org: https://freesound.org/people/InspectorJ/sounds/400632/
+###Sounds
+
+- Ambience, Seaside Waves, Close, A by InspectorJ (www.jshaw.co.uk) of Freesound.org: https://freesound.org/people/InspectorJ/sounds/400632/
+- https://opengameart.org/content/level-up-power-up-coin-get-13-sounds
+- https://freesound.org/people/j1987/sounds/95001/
+- https://freesound.org/people/Reitanna/sounds/332668/
+- Some sound effects generated with SFXR: https://www.drpetter.se/project_sfxr.html
 
 ### Music
 

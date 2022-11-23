@@ -40,4 +40,24 @@ public class Pushable : Resettable
             pit.Fill();
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject other = collision.gameObject;
+        HiddenSpot hiddenSpot = other.GetComponent<HiddenSpot>();
+        if (hiddenSpot != null)
+        {
+            hiddenSpot.filled = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        GameObject other = collision.gameObject;
+        HiddenSpot hiddenSpot = other.GetComponent<HiddenSpot>();
+        if (hiddenSpot != null)
+        {
+            hiddenSpot.filled = false;
+        }
+    }
 }

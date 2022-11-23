@@ -23,6 +23,10 @@ public class Dialog : MonoBehaviour
 
     public DialogLine[] dialogLines;
 
+    private AudioSource sfx;
+    public AudioClip openSound;
+    public AudioClip advanceSound;
+
     private void Awake()
     {
         UpdateText();
@@ -33,6 +37,15 @@ public class Dialog : MonoBehaviour
         if (player != null)
         {
             player.StartTalking();
+        }
+        sfx = GetComponent<AudioSource>();
+        if (FindObjectsOfType<Dialog>().Length + FindObjectsOfType<DialogChoice>().Length <= 1)
+        {
+            sfx.PlayOneShot(openSound);
+        }
+        else
+        {
+            sfx.PlayOneShot(advanceSound);
         }
     }
 
@@ -60,6 +73,7 @@ public class Dialog : MonoBehaviour
             Destroy(gameObject);
             return;
 		}
+        sfx.PlayOneShot(advanceSound);
         UpdateText();
     }
 
