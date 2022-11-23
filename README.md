@@ -13,9 +13,9 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 - [ ] There must be island gameplay and boat gameplay.
 	- island gameplay
 		- puzzles:
-			- ✔ tutorial- push rocks into holes
+			- ✔ tutorial- push rock into hole
+			- push rocks into 4 corner pits of diamond island
 			- push rocks into symmetric pattern as inaccessible part
-			- push rocks into 4 corners of diamond island
 			- sokobans
 			- push rock across 1 tile corner from boat
 			- talk to rock NPC next to hole multiple times
@@ -49,7 +49,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 	- ~~use gems directly? smuggling?~~
 	- shop
 		- shopkeepers
-			- frog- explains talking/shops
+			- ✔ frog
 			- ✔ snake- has one of each coin above him
 			- ✔ turtle
 			- ✔ flamingo
@@ -87,6 +87,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- condition- all hidden spots filled
 			- test
 		- sokobans
+		- dig for treasure- invisible npc
 	- world
 		- lay out islands
 			- hidden spot puzzles
