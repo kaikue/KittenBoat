@@ -106,7 +106,7 @@ public class Crab : MonoBehaviour
 
     private bool IsFree(Vector2 pos)
     {
-        Collider2D collider = Physics2D.OverlapBox(pos, size, 0, LayerMask.GetMask("Default", "RockTiles", "WaterTiles", "Pushable", "Pit"));
+        Collider2D collider = Physics2D.OverlapBox(pos, size, 0, LayerMask.GetMask("RockTiles", "WaterTiles", "Pushable", "Pit"));
         return collider == null;
     }
 

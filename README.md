@@ -50,69 +50,20 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 	- shop
 		- shopkeepers
 			- frog- explains talking/shops
-			- ✔ snake- explains monetary increments
-				- has one of each coin above him
-			- ✔ turtle- sells hat
-				- I found this cool hat on the beach.
-				- I don't need it, because my whole body is a hat.
-				- I'll sell it to you for 100 gold. >Buy/Don't
-				- [decline] That's alright. When you're as old as I am, rejection doesn't bother you anymore.
-				- [not enough] I may be old, but I can see that you don't have enough gold.
-				- [buy] A kitten in a hat... this'll be one to write home about.
-				- [bought] To be honest, I don't know whether I'm a turtle or a tortoise.
-			- ✔ flamingo- sells boots
-				- Flamingos are natural experts on footwear.
-				- That's why we stand on one leg all the time. So we don't wear out our shoes.
-				- You can buy these stylish boots, for only 75 gold. >Buy/Don't
-				- [decline] That's okay. They're too hip for you anyway.
-				- [not enough] You don't have enough gold, and I don't do discounts.
-				- [buy] Wow. You're serving already.
-				- [bought] My leg is getting tired...
-			- ✔ parrot- sells eyepatch
-				- Caw! The most notorious pirates all wear eye patches!
-				- Because if they can plunder without depth perception, they must be a fearsome foe indeed!
-				- You can buy this eyepatch for a mere 25 gold! >Buy/Don't
-				- [decline] Suit yourself! Caw!
-				- [not enough] You tryin' to scam me? Caw! You need more gold!
-				- [buy] You'll be the terror of the high seas!
-				- [bought] I once served under Captain Blackbeard himself!
-				-	...but only after the name entered public domain.
-			- ✔ octopus- sells hook
-			- ✔ sea serpent- sells reinforced hull
-				- custom shopkeeper script- no crab spawn (he is on the shore)
-				- [not all 4 pirate items] I only speak to real pirates. You look like a landlubber.
-				- Wow, you look like a real pirate. Be warned, choppy seas out there...
-				- I can reinforce your ship's hull to navigate the deeper waters.
-				- But it'll cost you 250 gold. >Upgrade/Don't
-				- [decline] Not everyone is cut out for adventure.
-				- [not enough] Who are you trying to fool? Come back when you have 250 gold.
-				- [buy] Good luck out there, and watch out for sharks...
-				- [bought] I'm hungry... I wonder if Panera Bread takes pirate gold.
-			- otter- sends letter to penguin
-			- penguin- receives letter
+			- ✔ snake- has one of each coin above him
+			- ✔ turtle
+			- ✔ flamingo
+			- ✔ parrot
+			- ✔ octopus
+			- ✔ manatee
+			- ✔ sea serpent
+			- ✔ otter
+			- ✔ penguin
+			- ✔ starfish cultist
 			- *mermaid?*- tells you about hidden treasure
 			- *?*- sells map?
 			- *?*- mad scientist operating jelly zapper (farm piranhas for gold)
 			- *monkey*- dances directions of gems
-			- ✔ starfish cultist (in deepwater)- sells jellyfish artifact
-				- His coming marks the end of days.
-				- If you wish to see him, you'll have to pay.
-				- [Buy the Jellyfish Statue for 500 gold?] Yes/No
-				- [decline] (nothing)
-				- [not enough] [Not enough gold.]
-				- [buy] (nothing)
-				- [bought] Across the oceans, he shall swim.
-				- 	With this chant, I honor him.
-				- [killed jellyfish] You did WHAT?!?
-			- ✔ manatee- sells Winner's Trophy for 9999 coins
-				- I won this trophy at a foosball tournament! It says "You're a True Winner!"
-				- You can buy it... for only 9999 gold! Hah! As if you'll ever get that much!
-				- [Buy the Winner's Trophy?] Buy/Don't
-				- [decline] I knew it! No one has that much gold!
-				- [not enough] I said 9999 gold, pal! No discounts!
-				- [buy] What... you're serious? I was just kidding, but all right... here you go!
-				- (I'm rich!!!)
-				- [bought] (I'm rich!!!)
 			- ~~*wizard?*- I am the wizard! Don't touch my Orb!~~
 	- progression
 		- all 4 pirate clothes (25+50+75+100=250)
@@ -132,14 +83,10 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- set killedJellyfish = true
 
 - Misc
-	- write & test otter/penguin dialog
 	- puzzles
 		- condition- all hidden spots filled
 			- test
 		- sokobans
-	- allow push boulder into cave
-		- move npcs onto their own layer
-		- make crab, pushable check for that layer instead of default
 	- world
 		- lay out islands
 			- hidden spot puzzles
