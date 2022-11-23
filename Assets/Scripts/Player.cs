@@ -47,6 +47,16 @@ public class Player : MonoBehaviour
     public AudioClip sfxPush;
     public AudioClip sfxDialogClose;
 
+    [HideInInspector]
+    public bool hasLetter = false;
+    [HideInInspector]
+    public bool deliveredLetter = false;
+
+    [HideInInspector]
+    public bool hasJellyStatue;
+    [HideInInspector]
+    public bool killedJellyfish;
+
     private void Start() {
         sr = GetComponent<SpriteRenderer>();
         standSprite = sr.sprite;

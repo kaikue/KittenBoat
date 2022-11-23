@@ -52,15 +52,15 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- frog- explains talking/shops
 			- ✔ snake- explains monetary increments
 				- has one of each coin above him
-			- turtle- sells hat
+			- ✔ turtle- sells hat
 				- I found this cool hat on the beach.
 				- I don't need it, because my whole body is a hat.
 				- I'll sell it to you for 100 gold. >Buy/Don't
 				- [decline] That's alright. When you're as old as I am, rejection doesn't bother you anymore.
 				- [not enough] I may be old, but I can see that you don't have enough gold.
 				- [buy] A kitten in a hat... this'll be one to write home about.
-				- [bought] To be honest, I don't know whether I'm a turtle or a tortoise...
-			- flamingo- sells boots
+				- [bought] To be honest, I don't know whether I'm a turtle or a tortoise.
+			- ✔ flamingo- sells boots
 				- Flamingos are natural experts on footwear.
 				- That's why we stand on one leg all the time. So we don't wear out our shoes.
 				- You can buy these stylish boots, for only 75 gold. >Buy/Don't
@@ -68,7 +68,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 				- [not enough] You don't have enough gold, and I don't do discounts.
 				- [buy] Wow. You're serving already.
 				- [bought] My leg is getting tired...
-			- parrot- sells eyepatch
+			- ✔ parrot- sells eyepatch
 				- Caw! The most notorious pirates all wear eye patches!
 				- Because if they can plunder without depth perception, they must be a fearsome foe indeed!
 				- You can buy this eyepatch for a mere 25 gold! >Buy/Don't
@@ -78,7 +78,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 				- [bought] I once served under Captain Blackbeard himself!
 				-	...but only after the name entered public domain.
 			- ✔ octopus- sells hook
-			- sea serpent- sells reinforced hull
+			- ✔ sea serpent- sells reinforced hull
 				- custom shopkeeper script- no crab spawn (he is on the shore)
 				- [not all 4 pirate items] I only speak to real pirates. You look like a landlubber.
 				- Wow, you look like a real pirate. Be warned, choppy seas out there...
@@ -88,13 +88,13 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 				- [not enough] Who are you trying to fool? Come back when you have 250 gold.
 				- [buy] Good luck out there, and watch out for sharks...
 				- [bought] I'm hungry... I wonder if Panera Bread takes pirate gold.
-			- otter- sends letter to penguin (on receipt, blush + unlock cave)
-			- penguin- receives letter (blush)
+			- otter- sends letter to penguin
+			- penguin- receives letter
 			- *mermaid?*- tells you about hidden treasure
 			- *?*- sells map?
 			- *?*- mad scientist operating jelly zapper (farm piranhas for gold)
 			- *monkey*- dances directions of gems
-			- starfish cultist (in deepwater)- sells jellyfish artifact
+			- ✔ starfish cultist (in deepwater)- sells jellyfish artifact
 				- His coming marks the end of days.
 				- If you wish to see him, you'll have to pay.
 				- [Buy the Jellyfish Statue for 500 gold?] Yes/No
@@ -103,17 +103,17 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 				- [buy] (nothing)
 				- [bought] Across the oceans, he shall swim.
 				- 	With this chant, I honor him.
-			- manatee- sells Winner's Trophy for 9999 coins
+				- [killed jellyfish] You did WHAT?!?
+			- ✔ manatee- sells Winner's Trophy for 9999 coins
 				- I won this trophy at a foosball tournament! It says "You're a True Winner!"
 				- You can buy it... for only 9999 gold! Hah! As if you'll ever get that much!
 				- [Buy the Winner's Trophy?] Buy/Don't
-				- I knew it! No one has that much gold!
-				- What... you're serious? I was just kidding, but all right... here you go!
+				- [decline] I knew it! No one has that much gold!
+				- [not enough] I said 9999 gold, pal! No discounts!
+				- [buy] What... you're serious? I was just kidding, but all right... here you go!
 				- (I'm rich!!!)
+				- [bought] (I'm rich!!!)
 			- ~~*wizard?*- I am the wizard! Don't touch my Orb!~~
-		- items
-			- Strengthened Hull (deepwater upgrade)
-			- Winner's Trophy
 	- progression
 		- all 4 pirate clothes (25+50+75+100=250)
 		- boat upgrade (250)
@@ -124,14 +124,15 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 	- boat trivia?
 	- turn blocks puzzle?
 - [ ] There is an enemy (jellyfish) who appears when the timer runs out and tries to get you.
-	- place jellyfish trophy on island at bottom left corner
+	- place jellyfish trophy on island at bottom left corner (pedestal npc)
 	- get back on board and timer starts
 	- race away from it all the way across the map to top right corner where you can kill it (no dismounting boat)
 		- if it gets you you have to rebuild (puzzle) & get a little headstart
-		- serpent disappears while this is happening
 	- when killed drops 9999 gold & platinum & gems
+		- set killedJellyfish = true
 
 - Misc
+	- write & test otter/penguin dialog
 	- puzzles
 		- condition- all hidden spots filled
 			- test
@@ -139,14 +140,14 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 	- allow push boulder into cave
 		- move npcs onto their own layer
 		- make crab, pushable check for that layer instead of default
-	- implement sea serpent npc & reinforced hull
-		- parent to boat, destroy deepwater barriers
 	- world
 		- lay out islands
 			- hidden spot puzzles
+		- make sure crab works for each shopkeeper
 		- place hub music & deepwater music zones
 		- distribute gold (500 each in shallow & deep)
 		- deepwater barriers
+			- reinforced hull destroy deepwater barriers on create
 		- clean up island edges
 		- fill with water
 		- surround with rocks
@@ -158,6 +159,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- chasing piranhas
 		- puzzle game style sequence to rebuild? (shop music)
 		- floating treasure piles?
+	- winner's trophy- on obtain, go to end screen?
 	- button tutorials
 		- movement
 		- interact (first NPC)

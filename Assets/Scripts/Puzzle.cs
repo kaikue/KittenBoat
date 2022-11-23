@@ -35,7 +35,7 @@ public class Puzzle : MonoBehaviour
         }
     }
 
-    private void SolvePuzzle()
+    public void SolvePuzzle()
     {
         caveDoor.Open();
         GetComponent<AudioSource>().Play();

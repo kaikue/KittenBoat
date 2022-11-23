@@ -13,7 +13,7 @@ public class Shopkeeper : NPC
     public int price;
     public GameObject crab;
 
-    private const float crabChance = 0.3f;
+    protected float crabChance = 0.3f;
 
     public override void Interact(Player player)
     {
@@ -46,7 +46,10 @@ public class Shopkeeper : NPC
         {
             SetFlag("sold");
             player.AddCoins(-price);
-            OpenDialog(dialogSold, player);
+            if (dialogSold)
+            {
+                OpenDialog(dialogSold, player);
+            }
         }
         else
         {
