@@ -49,6 +49,11 @@ public class Pushable : Resettable
         {
             hiddenSpot.filled = true;
         }
+        ResetButton resetButton = other.GetComponent<ResetButton>();
+        if (resetButton != null)
+        {
+            resetButton.ResetPuzzle();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

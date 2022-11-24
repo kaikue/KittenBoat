@@ -14,11 +14,12 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 	- island gameplay
 		- puzzles:
 			- ✔ tutorial- push rock into hole
-			- push rocks into 4 corner pits of diamond island
-			- push rocks into symmetric pattern as inaccessible part
+			- ✔ push rocks into 4 corner pits of diamond island
+			- ✔ push rocks into matching pattern as inaccessible part
 			- sokobans
+				- fill in middle hole first to make path to right one
 			- push rock across 1 tile corner from boat
-			- talk to rock NPC next to hole multiple times
+			- ✔ talk to rock NPC next to hole multiple times
 			- facilitate npc romance
 			- secondary cave inside cave- solve puzzle, reset, push rock into cave
 			- buried treasure- dig at X
@@ -33,6 +34,8 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 				- easier version: smash against fixed hazard
 			- hit reset button partway through (cube respawn)
 				- separate reset buttons per color gem
+			- sokobans
+				- gems can fill wrong color holes- push red over green in red hole to accomplish something
 			- push gem onto reset button
 			- jelly zapper machine- farm piranhas
 			- ~~smuggle gem on boat?~~
@@ -62,7 +65,15 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- ✔ starfish cultist
 			- *mermaid?*- tells you about hidden treasure
 			- *?*- sells map?
-			- *?*- mad scientist operating jelly zapper (farm piranhas for gold)
+			- chameleon- mad scientist operating jelly zapper (farm piranhas for gold)
+				- I hate piranhas so freakin much!!!
+				- That's why I built this giant laser! To blow them all up!
+				- If you help blow up 5 piranhas I'll give you a reward!
+				- [retalk] Remember, 5 piranhas! Zap em with the laser!!!
+				- [complete] Ahh, the beautiful smell of fried piranha!
+				- Thanks pal! Help yourself to this treasure!
+				- [complete retalk] Feel free to keep killing piranhas if you want!
+				- [killed jellyfish] Uhh... what just happened?
 			- *monkey*- dances directions of gems
 			- ~~*wizard?*- I am the wizard! Don't touch my Orb!~~
 	- progression
@@ -83,14 +94,21 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- set killedJellyfish = true
 
 - Misc
+	- more decoration tiles
+	- laser puzzle
+		- test chameleon dialog
+		- piranhas
+			- spawn
+			- animated
+			- chase you & point towards you
+			- despawn if too far away
+			- sounds?
 	- puzzles
-		- condition- all hidden spots filled
-			- test
 		- sokobans
 		- dig for treasure- invisible npc
 	- world
 		- lay out islands
-			- hidden spot puzzles
+		- decorate with rocks
 		- make sure crab works for each shopkeeper
 		- place hub music & deepwater music zones
 		- distribute gold (500 each in shallow & deep)
@@ -99,6 +117,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- clean up island edges
 		- fill with water
 		- surround with rocks
+		- kitten at 0,0
 	- boat stuff
 		- patrolling sharks
 			- open & close mouths
@@ -130,6 +149,7 @@ Font: Softsquare Mono by Chevy Ray https://chevyray.itch.io/pixel-fonts
 - https://opengameart.org/content/level-up-power-up-coin-get-13-sounds
 - https://freesound.org/people/j1987/sounds/95001/
 - https://freesound.org/people/Reitanna/sounds/332668/
+- https://freesound.org/people/D4XX/sounds/567269/
 - Some sound effects generated with SFXR: https://www.drpetter.se/project_sfxr.html
 
 ### Music

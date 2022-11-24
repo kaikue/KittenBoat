@@ -45,4 +45,22 @@ public class Boat : MonoBehaviour
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        LaserButton laserButton = collision.gameObject.GetComponent<LaserButton>();
+        if (laserButton != null)
+        {
+            laserButton.Enter();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        LaserButton laserButton = collision.gameObject.GetComponent<LaserButton>();
+        if (laserButton != null)
+        {
+            laserButton.Exit();
+        }
+    }
 }
