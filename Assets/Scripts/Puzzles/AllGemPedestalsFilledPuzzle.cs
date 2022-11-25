@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AllHiddenSpotsFilledPuzzle : Puzzle
+public class AllGemPedestalsFilledPuzzle : Puzzle
 {
-    private HiddenSpot[] hiddenSpots;
+    private GemPedestal[] gemPedestals;
 
     protected override void Start()
     {
-        hiddenSpots = GetComponentsInChildren<HiddenSpot>();
+        gemPedestals = GetComponentsInChildren<GemPedestal>();
         base.Start();
     }
 
     protected override bool IsComplete()
     {
-        foreach (HiddenSpot hiddenSpot in hiddenSpots)
+        foreach (GemPedestal gemPedestal in gemPedestals)
         {
-            if (!hiddenSpot.filled)
+            if (!gemPedestal.filled)
             {
                 return false;
             }

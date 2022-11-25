@@ -18,15 +18,13 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- ✔ push rocks into matching pattern as inaccessible part
 			- sokobans
 				- fill in middle hole first to make path to right one
-			- push rock across 1 tile corner from boat
+			- ✔ push rock across 1 tile corner from boat
 			- ✔ talk to rock NPC next to hole multiple times
-			- facilitate npc romance
-			- secondary cave inside cave- solve puzzle, reset, push rock into cave
-			- buried treasure- dig at X
-			- ~~drop rocks into water to form path?~~
+			- ✔ facilitate npc romance
+			- ✔ secondary cave inside cave- solve puzzle, reset, push rock into cave
 		- deepwater islands (need upgrade): colored gems
-			- push gems into 4 corners of diamond island corresponding to boat directions
-			- push gems into order according to npc dance
+			- ✔ push gems into 4 corners of diamond island corresponding to boat directions
+			- ✔ push gems into order according to npc dance
 			- dig for buried gem from hint
 				- npc on one island tells you about buried treasure on another
 			- secret path in rock spikes
@@ -35,11 +33,9 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- hit reset button partway through (cube respawn)
 				- separate reset buttons per color gem
 			- sokobans
-				- gems can fill wrong color holes- push red over green in red hole to accomplish something
+				- gems can fill wrong color holes- push red past green in red hole to accomplish something
 			- push gem onto reset button
 			- jelly zapper machine- farm piranhas
-			- ~~smuggle gem on boat?~~
-			- ~~shopkeeper that only takes gems?~~
 	- boat gameplay
 		- boat breaks into tiles, need to repair
 		- dodge rocks
@@ -63,18 +59,10 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- ✔ otter
 			- ✔ penguin
 			- ✔ starfish cultist
-			- *mermaid?*- tells you about hidden treasure
+			- mermaid- tells you about hidden treasure
+			- chameleon- mad scientist operating jelly zapper
+			- ✔ monkey- dances directions of gems
 			- *?*- sells map?
-			- chameleon- mad scientist operating jelly zapper (farm piranhas for gold)
-				- I hate piranhas so freakin much!!!
-				- That's why I built this giant laser! To blow them all up!
-				- If you help blow up 5 piranhas I'll give you a reward!
-				- [retalk] Remember, 5 piranhas! Zap em with the laser!!!
-				- [complete] Ahh, the beautiful smell of fried piranha!
-				- Thanks pal! Help yourself to this treasure!
-				- [complete retalk] Feel free to keep killing piranhas if you want!
-				- [killed jellyfish] Uhh... what just happened?
-			- *monkey*- dances directions of gems
 			- ~~*wizard?*- I am the wizard! Don't touch my Orb!~~
 	- progression
 		- all 4 pirate clothes (25+50+75+100=250)
@@ -95,6 +83,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 
 - Misc
 	- more decoration tiles
+		- jellyfish island columns
 	- laser puzzle
 		- test chameleon dialog
 		- piranhas
@@ -108,6 +97,8 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- dig for treasure- invisible npc
 	- world
 		- lay out islands
+		- place puzzles
+		- surround caves with rocks & fill in cave floors
 		- decorate with rocks
 		- make sure crab works for each shopkeeper
 		- place hub music & deepwater music zones
@@ -117,7 +108,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- clean up island edges
 		- fill with water
 		- surround with rocks
-		- kitten at 0,0
+		- kitten at 0,0; boat at 3.5,0
 	- boat stuff
 		- patrolling sharks
 			- open & close mouths
@@ -126,7 +117,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- chasing piranhas
 		- puzzle game style sequence to rebuild? (shop music)
 		- floating treasure piles?
-	- winner's trophy- on obtain, go to end screen?
+	- winner's trophy- on obtain, go to end screen
 	- button tutorials
 		- movement
 		- interact (first NPC)
