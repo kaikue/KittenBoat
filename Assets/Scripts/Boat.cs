@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boat : MonoBehaviour
 {
@@ -13,6 +14,15 @@ public class Boat : MonoBehaviour
     public Collider2D boatWallLeft;
     public Collider2D boatWallRight;
     public Rigidbody2D rb;
+    public const int maxHealth = 3;
+    public int health = maxHealth;
+    public RectTransform heartsUI;
+    public GameObject[] emptyHearts;
+    private Coroutine crtShowHearts;
+    private const int hideHeartsY = 270;
+    private const int showHeartsY = 185;
+    private const float moveHeartsTime = 0.5f;
+    private AudioSource hitSound;
 
     public SpriteRenderer flagRenderer;
 
@@ -20,6 +30,7 @@ public class Boat : MonoBehaviour
     {
         flagInactiveSprite = flagRenderer.sprite;
         rb = GetComponent<Rigidbody2D>();
+        hitSound = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -62,5 +73,103 @@ public class Boat : MonoBehaviour
         {
             laserButton.Exit();
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject other = collision.gameObject;
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            Piranha piranha = other.GetComponent<Piranha>();
+            if (piranha != null)
+            {
+                Destroy(other);
+            }
+            Shark shark = other.GetComponent<Shark>();
+            if (shark != null)
+            {
+                shark.TempDisable();
+            }
+            Jellyfish jellyfish = other.GetComponent<Jellyfish>();
+            if (jellyfish != null)
+            {
+                //TODO move jelly back a bit
+            }
+            Damage();
+        }
+    }
+
+    private void Damage()
+    {
+        hitSound.Play();
+        health--;
+        for (int i = 0; i < maxHealth; i++)
+        {
+            emptyHearts[i].SetActive(i >= health);
+        }
+        ShowHearts();
+        if (health <= 0)
+        {
+            //TODO smash boat
+            Restore();
+        }
+    }
+
+    private void Restore()
+    {
+        health = maxHealth;
+        HideHearts();
+        for (int i = 0; i < maxHealth; i++)
+        {
+            emptyHearts[i].SetActive(false);
+        }
+    }
+
+    private void TryStopCoroutine(Coroutine crt)
+    {
+        if (crt != null)
+        {
+            StopCoroutine(crt);
+        }
+    }
+
+    private void ShowHearts()
+    {
+        TryStopCoroutine(crtShowHearts);
+        crtShowHearts = StartCoroutine(SlideHeartsIn());
+    }
+
+    private void HideHearts()
+    {
+        TryStopCoroutine(crtShowHearts);
+        crtShowHearts = StartCoroutine(SlideHeartsOut());
+    }
+
+    private IEnumerator SlideHeartsIn()
+    {
+        float startY = Mathf.Min(hideHeartsY, heartsUI.anchoredPosition.y); 
+
+        for (float t = 0; t < moveHeartsTime; t += Time.deltaTime)
+        {
+            float y = Mathf.Lerp(startY, showHeartsY, t / moveHeartsTime);
+            heartsUI.anchoredPosition = new Vector2(heartsUI.anchoredPosition.x, y);
+            yield return null;
+        }
+        heartsUI.anchoredPosition = new Vector2(heartsUI.anchoredPosition.x, showHeartsY);
+    }
+
+    private IEnumerator SlideHeartsOut()
+    {
+        float delayTime = 1;
+
+        yield return new WaitForSeconds(delayTime);
+        for (float t = 0; t < moveHeartsTime; t += Time.deltaTime)
+        {
+            float y = Mathf.Lerp(showHeartsY, hideHeartsY, t / moveHeartsTime);
+            heartsUI.anchoredPosition = new Vector2(heartsUI.anchoredPosition.x, y);
+            yield return null;
+        }
+        heartsUI.anchoredPosition = new Vector2(heartsUI.anchoredPosition.x, hideHeartsY);
     }
 }

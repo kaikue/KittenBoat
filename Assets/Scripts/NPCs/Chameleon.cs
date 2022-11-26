@@ -20,9 +20,9 @@ public class Chameleon : NPC
         }
         else if (flags.Contains("completeTalked"))
         {
-            OpenDialog(dialogRetalk, player);
+            OpenDialog(dialogCompleteRetalk, player);
         }
-        else if (laser.killedPiranhas >= 5)
+        else if (laser.killedPiranhas >= 3)
         {
             OpenDialog(dialogComplete, player);
         }

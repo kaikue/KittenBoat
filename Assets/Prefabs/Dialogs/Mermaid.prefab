@@ -57,15 +57,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[0].text
-      value: I hate piranhas so freakin much!!!
+      value: '"At the shoreline, below the third tree..."'
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[1].text
-      value: That's why I built this giant laser! To blow them all up!
+      value: '"That''s where the buried secret shall be."'
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[2].text
-      value: If you help blow up 3 piranhas I'll give you a reward!
+      value: What a curious poem...
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[1].choices.Array.size
@@ -88,10 +88,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
-      propertyPath: dialogLines.Array.data[2].lineEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[0].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
       objectReference: {fileID: 0}
@@ -100,19 +96,11 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
-      propertyPath: dialogLines.Array.data[2].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[0].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 464618387356911572}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[1].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 464618387356911572}
-    - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
-      propertyPath: dialogLines.Array.data[2].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 464618387356911572}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
@@ -124,10 +112,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
-      propertyPath: dialogLines.Array.data[2].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[0].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TestAction
       objectReference: {fileID: 0}
@@ -136,19 +120,11 @@ PrefabInstance:
       value: ShowDialogChoice
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
-      propertyPath: dialogLines.Array.data[2].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetNPCFlag
-      objectReference: {fileID: 0}
-    - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[0].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Dialog, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[1].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Dialog, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
-      propertyPath: dialogLines.Array.data[2].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Dialog, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
@@ -160,10 +136,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6090844866128653690, guid: 5689e6b7c0d5a014b8b22735bc7419a2, type: 3}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
-      propertyPath: dialogLines.Array.data[2].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: talked
-      objectReference: {fileID: 0}
-    - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[0].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -171,13 +143,9 @@ PrefabInstance:
       propertyPath: dialogLines.Array.data[1].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: DialogChoice, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
-      propertyPath: dialogLines.Array.data[2].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474460, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: m_Name
-      value: Chameleon Greet
+      value: Mermaid
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}

@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Piranha : Enemy
+public class Jellyfish : Enemy
 {
     private const float speed = 3;
-    private const float despawnDistance = 20;
     private Boat boat;
     private Rigidbody2D rb;
 
@@ -19,16 +18,9 @@ public class Piranha : Enemy
     {
         Vector2 currentPos = rb.position;
         Vector2 diff = boat.transform.position - transform.position;
-        if (diff.magnitude > despawnDistance)
-        {
-            Destroy(gameObject);
-            return;
-        }
         Vector2 dir = diff.normalized;
         Vector2 move = speed * Time.fixedDeltaTime * dir;
         rb.MovePosition(currentPos + move);
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,8 +28,10 @@ public class Piranha : Enemy
         Laser laser = collision.gameObject.GetComponent<Laser>();
         if (laser != null)
         {
-            laser.killedPiranhas++;
             Destroy(gameObject);
+            Player player = FindObjectOfType<Player>();
+            player.killedJellyfish = true;
+            //TODO stop music, spawn a ton of gold & platinum
         }
     }
 }

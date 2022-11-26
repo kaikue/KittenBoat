@@ -25,27 +25,24 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- deepwater islands (need upgrade): colored gems
 			- ✔ push gems into 4 corners of diamond island corresponding to boat directions
 			- ✔ push gems into order according to npc dance
-			- dig for buried gem from hint
-				- npc on one island tells you about buried treasure on another
-			- secret path in rock spikes
+			- secret path in rock spikes (explore to map out, then push rock through)
+			- ✔ dig for buried gem from hint (npc on one island tells you about buried treasure on another)
+			- ✔ jelly zapper machine- farm piranhas
 			- lure enemy, break boat between islands, push rock across, repair boat
-				- easier version: smash against fixed hazard
-			- hit reset button partway through (cube respawn)
-				- separate reset buttons per color gem
+				- easier version: smash against fixed (shark?) hazard (middle island with reward)
 			- sokobans
+				- colored pedestals
 				- gems can fill wrong color holes- push red past green in red hole to accomplish something
-			- push gem onto reset button
-			- jelly zapper machine- farm piranhas
+			- push gem onto reset button?
+			- hit reset button partway through (cube respawn)?
+				- separate reset buttons per color gem?
 	- boat gameplay
-		- boat breaks into tiles, need to repair
-		- dodge rocks
-		- dodge shark patrols
-		- run from chasing piranhas (despawn when too far away)
-		- ~~wind?~~
+		- on enemy collide: boat breaks into tiles, need to repair
+		- ✔ dodge rocks
+		- ✔ dodge shark patrols
+		- ✔ run from chasing piranhas
 		- jellyfish
 - [ ] The goal is only to get money and buy expensive items.
-	- ~~maybe a shopkeeper sells a second item or upgrade afterwards~~
-	- ~~use gems directly? smuggling?~~
 	- shop
 		- shopkeepers
 			- ✔ frog
@@ -59,8 +56,8 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- ✔ otter
 			- ✔ penguin
 			- ✔ starfish cultist
-			- mermaid- tells you about hidden treasure
-			- chameleon- mad scientist operating jelly zapper
+			- ✔ mermaid- tells you about hidden treasure
+			- ✔ chameleon- mad scientist operating jelly zapper
 			- ✔ monkey- dances directions of gems
 			- *?*- sells map?
 			- ~~*wizard?*- I am the wizard! Don't touch my Orb!~~
@@ -77,48 +74,37 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 	- place jellyfish trophy on island at bottom left corner (pedestal npc)
 	- get back on board and timer starts
 	- race away from it all the way across the map to top right corner where you can kill it (no dismounting boat)
-		- if it gets you you have to rebuild (puzzle) & get a little headstart
-	- when killed drops 9999 gold & platinum & gems
+		- jellyfish doesnt approach when boat is smashed or for a bit after hitting boat
+	- when killed drops 9999 gold & platinum
 		- set killedJellyfish = true
 
 - Misc
 	- more decoration tiles
-		- jellyfish island columns
-	- laser puzzle
-		- test chameleon dialog
-		- piranhas
-			- spawn
-			- animated
-			- chase you & point towards you
-			- despawn if too far away
-			- sounds?
 	- puzzles
 		- sokobans
-		- dig for treasure- invisible npc
 	- world
 		- lay out islands
 		- place puzzles
 		- surround caves with rocks & fill in cave floors
+		- distribute gold (550 each in shallow & deep)
 		- decorate with rocks
-		- make sure crab works for each shopkeeper
-		- place hub music & deepwater music zones
-		- distribute gold (500 each in shallow & deep)
-		- deepwater barriers
-			- reinforced hull destroy deepwater barriers on create
 		- clean up island edges
 		- fill with water
 		- surround with rocks
+		- make sure crab works for each shopkeeper
+		- place hub music & deepwater music zones
+		- deepwater barriers
+			- reinforced hull destroy deepwater barriers on create
+		- decorate islands
+			- dont put 3 trees on one island because that would mess up riddle
 		- kitten at 0,0; boat at 3.5,0
 	- boat stuff
-		- patrolling sharks
-			- open & close mouths
-			- move between points (square or back/forth)
-				- angle/flip to face next point
-		- chasing piranhas
 		- puzzle game style sequence to rebuild? (shop music)
 		- floating treasure piles?
 	- winner's trophy- on obtain, go to end screen
+	- pause button?
 	- button tutorials
+		- just text on main menu?
 		- movement
 		- interact (first NPC)
 	- start/end menus
@@ -127,6 +113,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 	- fix button prompt starting as gamepad? (global check)
 	- animate water tiles?
 - Sounds
+	- piranhas?
 	- button press/unpress
 	- cat meows?
 
@@ -141,6 +128,7 @@ Font: Softsquare Mono by Chevy Ray https://chevyray.itch.io/pixel-fonts
 - https://freesound.org/people/j1987/sounds/95001/
 - https://freesound.org/people/Reitanna/sounds/332668/
 - https://freesound.org/people/D4XX/sounds/567269/
+- https://freesound.org/people/utsuru/sounds/183453/
 - Some sound effects generated with SFXR: https://www.drpetter.se/project_sfxr.html
 
 ### Music
@@ -154,8 +142,3 @@ Font: Softsquare Mono by Chevy Ray https://chevyray.itch.io/pixel-fonts
 - RPG_Village_1 by Hitctrl: https://opengameart.org/content/rpgvillage1
 - Blackmoor Tides (Epic Pirate Battle Theme) by Matthew Pablo: https://opengameart.org/content/blackmoor-tides-epic-pirate-battle-theme
 - Treasure Hunter by TAD: https://opengameart.org/content/treasure-hunter
-
-
-bonus links:
-https://opengameart.org/content/summer-resort-theme
-https://opengameart.org/users/thimras
