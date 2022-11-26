@@ -21,7 +21,7 @@ public class JellyPedestal : NPC
         {
             placed = true;
             statue.SetActive(true);
-            //TODO
+            FindObjectOfType<Boat>().jellyfishSummoned = true;
         }
     }
 }

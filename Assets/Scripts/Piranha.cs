@@ -19,7 +19,7 @@ public class Piranha : Enemy
     {
         Vector2 currentPos = rb.position;
         Vector2 diff = boat.transform.position - transform.position;
-        if (diff.magnitude > despawnDistance)
+        if (diff.magnitude > despawnDistance || boat.smashed)
         {
             Destroy(gameObject);
             return;

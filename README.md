@@ -41,7 +41,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- ✔ dodge rocks
 		- ✔ dodge shark patrols
 		- ✔ run from chasing piranhas
-		- jellyfish
+		- ✔ jellyfish
 - [ ] The goal is only to get money and buy expensive items.
 	- shop
 		- shopkeepers
@@ -68,25 +68,30 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- winner's trophy (9999)
 - [ ] When you die, you have to rebuild the boat by playing a puzzle game style sequence.
 	- interact prompt
+	- shop music
 	- boat trivia?
 	- turn blocks puzzle?
 - [ ] There is an enemy (jellyfish) who appears when the timer runs out and tries to get you.
-	- place jellyfish trophy on island at bottom left corner (pedestal npc)
-	- get back on board and timer starts
-	- race away from it all the way across the map to top right corner where you can kill it (no dismounting boat)
-		- jellyfish doesnt approach when boat is smashed or for a bit after hitting boat
 	- when killed drops 9999 gold & platinum
-		- set killedJellyfish = true
 
 - Misc
-	- more decoration tiles
+	- how do sharks handle smashed boat?
+	- collect coins from boat
+	- boat smashing/rebuilding
 	- puzzles
+		- hidden rock path puzzle
+		- boat smash puzzle
 		- sokobans
+	- jellyfish art
+	- more decoration tiles
 	- world
 		- lay out islands
 		- place puzzles
 		- surround caves with rocks & fill in cave floors
+		- place enemies
 		- distribute gold (550 each in shallow & deep)
+			- some in hub
+			- floating treasure piles in ocean? (surrounded by enemies?)
 		- decorate with rocks
 		- clean up island edges
 		- fill with water
@@ -98,9 +103,6 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- decorate islands
 			- dont put 3 trees on one island because that would mess up riddle
 		- kitten at 0,0; boat at 3.5,0
-	- boat stuff
-		- puzzle game style sequence to rebuild? (shop music)
-		- floating treasure piles?
 	- winner's trophy- on obtain, go to end screen
 	- pause button?
 	- button tutorials

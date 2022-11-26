@@ -81,6 +81,10 @@ public class MusicManager : MonoBehaviour
         }
         currentMusicSrc.volume = 0;
         currentMusicSrc.Pause();
+        if (newSrc == null)
+        {
+            yield break;
+        }
         currentMusicSrc = newSrc;
         currentMusicSrc.volume = 0;
         currentMusicSrc.Play();

@@ -22,7 +22,7 @@ public class PiranhaSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (piranhaSpawned == null && Vector3.Distance(boat.transform.position, transform.position) <= spawnDist)
+            if (piranhaSpawned == null && Vector3.Distance(boat.transform.position, transform.position) <= spawnDist && !boat.smashed)
             {
                 piranhaSpawned = Instantiate(piranhaPrefab, transform.position, Quaternion.identity);
             }
