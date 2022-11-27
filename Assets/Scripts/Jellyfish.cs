@@ -11,6 +11,13 @@ public class Jellyfish : Enemy
     private bool wait = false;
     private const float tetherDistance = 20;
     private Player player;
+    public GameObject silverCoin;
+    public GameObject goldCoin;
+    public GameObject platinumCoin;
+    private const float coinForce = 40;
+    private const float coinDist = 5;
+    private const int numEachCoin = 200;
+    public GameObject deathSounds;
 
     private void Start()
     {
@@ -49,10 +56,12 @@ public class Jellyfish : Enemy
             Destroy(gameObject);
             Player player = FindObjectOfType<Player>();
             player.killedJellyfish = true;
+            player.GetComponent<AudioSource>().volume = 0.2f; //hacky but WHATEVER...
             boat.canLand = true;
             MusicManager musicManager = FindObjectOfType<MusicManager>();
             musicManager.SetMusic(null);
-            //TODO spawn a ton of gold & platinum
+            SpawnLoot();
+            Instantiate(deathSounds);
         }
     }
 
@@ -66,5 +75,23 @@ public class Jellyfish : Enemy
         wait = true;
         yield return new WaitForSeconds(hitWaitTime);
         wait = false;
+    }
+
+    private void SpawnLoot()
+    {
+        GameObject[] coins = { silverCoin, goldCoin, platinumCoin };
+        foreach (GameObject coin in coins)
+        {
+            for (int i = 0; i < numEachCoin; i++)
+            {
+                float angle = Mathf.Deg2Rad * Random.Range(0, 360);
+                float r = Random.Range(0, coinDist);
+                Vector3 position = rb.position + new Vector2(r * Mathf.Cos(angle), r * Mathf.Sin(angle));
+                GameObject spawnedCoin = Instantiate(coin, position, Quaternion.identity);
+                Rigidbody2D coinRB = spawnedCoin.GetComponent<Rigidbody2D>();
+                coinRB.constraints = RigidbodyConstraints2D.FreezeRotation;
+                coinRB.AddForce(new Vector2(Random.Range(-coinForce, coinForce), Random.Range(-coinForce, coinForce)));
+            }
+        }
     }
 }

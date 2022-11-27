@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -56,6 +58,13 @@ public class Player : MonoBehaviour
     public bool hasJellyStatue;
     [HideInInspector]
     public bool killedJellyfish;
+
+    [HideInInspector]
+    public bool hasTrophy;
+    private Coroutine crtEndFade;
+    private const float endFadeTime = 2;
+    private const float endWaitTime = 1;
+    public Image endFadeOverlay;
 
     [HideInInspector]
     public bool paused;
@@ -182,10 +191,18 @@ public class Player : MonoBehaviour
         }
         if (other.CompareTag("BoatFreezer"))
         {
-            other.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-            TryStopCoroutine(crtTransition);
-            crtTransition = StartCoroutine(Transition(cameraZoomedOutSize));
-            musicManager.SetMusic(musicManager.boatMusicSrc);
+            if (hasTrophy && crtEndFade == null)
+            {
+                crtEndFade = StartCoroutine(EndFade());
+                musicManager.SetMusic(null);
+            }
+            else
+            {
+                other.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+                TryStopCoroutine(crtTransition);
+                crtTransition = StartCoroutine(Transition(cameraZoomedOutSize));
+                musicManager.SetMusic(musicManager.boatMusicSrc);
+            }
         }
         if (other.CompareTag("HubZone"))
         {
@@ -391,5 +408,19 @@ public class Player : MonoBehaviour
         AddCoins(coin.value);
         sfx.PlayOneShot(sfxCoin);
         Destroy(coin.gameObject);
+    }
+
+    private IEnumerator EndFade()
+    {
+        endFadeOverlay.gameObject.SetActive(true);
+        endFadeOverlay.color = new Color(1, 1, 1, 0);
+        for (float t = 0; t < endFadeTime; t += Time.deltaTime)
+        {
+            endFadeOverlay.color = new Color(1, 1, 1, t / endFadeTime);
+            yield return null;
+        }
+        endFadeOverlay.color = Color.white;
+        yield return new WaitForSeconds(endWaitTime);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

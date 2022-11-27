@@ -42,7 +42,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- ✔ dodge shark patrols
 		- ✔ run from chasing piranhas
 		- ✔ jellyfish
-- [ ] The goal is only to get money and buy expensive items.
+- [x] The goal is only to get money and buy expensive items.
 	- shop
 		- shopkeepers
 			- ✔ frog
@@ -67,16 +67,15 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- jellyfish statue (500)
 		- winner's trophy (9999)
 - [x] When you die, you have to rebuild the boat by playing a puzzle game style sequence.
-- [ ] There is an enemy (jellyfish) who appears when the timer runs out and tries to get you.
-	- when killed drops 9999 gold & platinum
+- [x] There is an enemy (jellyfish) who appears when the timer runs out and tries to get you.
 
 - Misc
+	- better frog joke
 	- puzzles
 		- hidden rock path puzzle
 		- sokobans
 		- boat smash puzzle
 	- jellyfish art
-	- jellyfish coins spawn
 	- more decoration tiles
 	- world
 		- lay out islands
@@ -98,19 +97,10 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- decorate islands
 			- dont put 3 trees on one island because that would mess up riddle
 		- kitten at 0,0; boat at 3.5,0
-	- winner's trophy- on obtain, go to end screen
-	- start/end menus
-		- menu music- Pirate1 Theme1
-		- ending music- Treasure Hunter
 	- maze scroll/paper sprite
 	- pause button?
-	- button tutorials
-		- just text on main menu?
-		- movement
-		- interact (first NPC)
 	- fix button prompt starting as gamepad? (global check)
-	- animate water tiles?
-	- Sounds
+	- sounds
 		- piranhas?
 		- button press/unpress
 		- cat meows?
@@ -124,6 +114,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 ## Credits
 
 Font: Softsquare Mono by Chevy Ray https://chevyray.itch.io/pixel-fonts
+Menu fonts: Arial Rounded MT Bold, Gabriola
 
 ###Sounds
 
@@ -133,6 +124,8 @@ Font: Softsquare Mono by Chevy Ray https://chevyray.itch.io/pixel-fonts
 - https://freesound.org/people/Reitanna/sounds/332668/
 - https://freesound.org/people/D4XX/sounds/567269/
 - https://freesound.org/people/utsuru/sounds/183453/
+- https://opengameart.org/content/chunky-explosion
+- https://opengameart.org/content/random-sfx
 - Some sound effects generated with SFXR: https://www.drpetter.se/project_sfxr.html
 
 ### Music

@@ -99,6 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42708f2fb0203e84a92dc939c99b4840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  silverCoin: {fileID: 6232541010720495283, guid: f1d17f8002321e64796b3c9b11891836, type: 3}
+  goldCoin: {fileID: 7725585657737228785, guid: ae5e22aa09c67f648b96aac09d21a490, type: 3}
+  platinumCoin: {fileID: 7725585657737228785, guid: 1fdb71ed2b3eb4544b0cdc22e7152dbc, type: 3}
+  deathSounds: {fileID: 1547305472319960487, guid: 93c97deae7bf20a4d984c7a4d983c548, type: 3}
 --- !u!61 &3668618705917125714
 BoxCollider2D:
   m_ObjectHideFlags: 0
