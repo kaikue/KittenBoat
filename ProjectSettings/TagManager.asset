@@ -11,6 +11,7 @@ TagManager:
   - MazeZone
   - MazeStartZone
   - MazeEndZone
+  - MazePaper
   layers:
   - Default
   - TransparentFX

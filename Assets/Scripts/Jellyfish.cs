@@ -10,17 +10,19 @@ public class Jellyfish : Enemy
     private const float hitWaitTime = 2;
     private bool wait = false;
     private const float tetherDistance = 20;
+    private Player player;
 
     private void Start()
     {
         boat = FindObjectOfType<Boat>();
+        player = FindObjectOfType<Player>();
         rb = GetComponent<Rigidbody2D>();
         boat.canLand = false;
     }
 
     private void FixedUpdate()
     {
-        if (wait || boat.smashed)
+        if (wait || boat.smashed || player.paused)
         {
             return;
         }

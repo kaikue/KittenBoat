@@ -57,7 +57,14 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public bool killedJellyfish;
 
-    private void Start() {
+    [HideInInspector]
+    public bool paused;
+
+    private Boat boat;
+
+    private void Start()
+    {
+        boat = FindObjectOfType<Boat>();
         sr = GetComponent<SpriteRenderer>();
         standSprite = sr.sprite;
         rb = GetComponent<Rigidbody2D>();
@@ -67,7 +74,8 @@ public class Player : MonoBehaviour
         sfx = GetComponent<AudioSource>();
     }
 
-    private void Update() {
+    private void Update()
+    {
         inputX = Input.GetAxis("Horizontal");
         inputY = Input.GetAxis("Vertical");
         if (talking)
@@ -102,7 +110,11 @@ public class Player : MonoBehaviour
 
             if (Input.GetButtonDown("Interact"))
             {
-                if (interactableNPC != null)
+                if (boat.smashed)
+                {
+                    boat.ShowMaze();
+                }
+                else if (interactableNPC != null)
                 {
                     interactableNPC.Interact(this);
                 }
@@ -112,7 +124,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (talking)
+        if (talking || paused)
         {
             rb.velocity = Vector2.zero;
         }
@@ -196,9 +208,7 @@ public class Player : MonoBehaviour
         Coin coin = other.GetComponent<Coin>();
         if (coin != null)
         {
-            AddCoins(coin.value);
-            sfx.PlayOneShot(sfxCoin);
-            Destroy(other);
+            CollectCoin(coin);
         }
         NPC npc = other.GetComponent<NPC>();
         if (npc != null)
@@ -374,5 +384,12 @@ public class Player : MonoBehaviour
         {
             musicManager.SetMusic(musicManager.puzzleIslandMusicSrc);
         }
+    }
+
+    public void CollectCoin(Coin coin)
+    {
+        AddCoins(coin.value);
+        sfx.PlayOneShot(sfxCoin);
+        Destroy(coin.gameObject);
     }
 }

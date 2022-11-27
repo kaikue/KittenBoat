@@ -11,10 +11,12 @@ public class PiranhaSpawner : MonoBehaviour
     private GameObject piranhaSpawned;
 
     private Boat boat;
+    private Player player;
 
     private void Start()
     {
         boat = FindObjectOfType<Boat>();
+        player = FindObjectOfType<Player>();
         StartCoroutine(CheckSpawn());
     }
 
@@ -22,7 +24,7 @@ public class PiranhaSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (piranhaSpawned == null && Vector3.Distance(boat.transform.position, transform.position) <= spawnDist && !boat.smashed)
+            if (piranhaSpawned == null && Vector3.Distance(boat.transform.position, transform.position) <= spawnDist && !boat.smashed && !player.paused)
             {
                 piranhaSpawned = Instantiate(piranhaPrefab, transform.position, Quaternion.identity);
             }

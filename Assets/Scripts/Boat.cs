@@ -36,17 +36,38 @@ public class Boat : MonoBehaviour
     private const float jellySpawnDist = 20;
     public Jellyfish jellyfishPrefab;
     public TextMeshProUGUI timerText;
+    public GameObject mazePrefab;
+    public Transform hudCanvas;
+    private Player player;
+    private bool invincible;
+    private SpriteRenderer sr;
+    private Color partialTransparent = new Color(1, 1, 1, 0.7f);
+    private const float invincibleTime = 4;
+    public Sprite smashedSprite;
+    private Sprite unsmashedSprite;
+    public GameObject boatRestorePrompt;
 
     private void Start()
     {
+        player = FindObjectOfType<Player>();
         flagInactiveSprite = flagRenderer.sprite;
         rb = GetComponent<Rigidbody2D>();
         hitSound = GetComponent<AudioSource>();
+        sr = GetComponent<SpriteRenderer>();
         canLand = true;
     }
 
     private void FixedUpdate()
     {
+        if (smashed || player.paused)
+        {
+            rb.velocity = Vector2.zero;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
         bool leftHit = Physics2D.Raycast(rb.position + new Vector2(-2.575f, -0.875f / 2), Vector2.up, 0.875f, LayerMask.GetMask("LandTiles")).collider != null;
         boatWallLeft.enabled = !canLand || !leftHit;
         bool rightHit = Physics2D.Raycast(rb.position + new Vector2(2.575f, -0.875f / 2), Vector2.up, 0.875f, LayerMask.GetMask("LandTiles")).collider != null;
@@ -77,10 +98,31 @@ public class Boat : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        LaserButton laserButton = collision.gameObject.GetComponent<LaserButton>();
+        GameObject other = collision.gameObject;
+        LaserButton laserButton = other.GetComponent<LaserButton>();
         if (laserButton != null)
         {
             laserButton.Enter();
+        }
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            Piranha piranha = other.GetComponent<Piranha>();
+            if (piranha != null)
+            {
+                Destroy(other);
+            }
+            Jellyfish jellyfish = other.GetComponent<Jellyfish>();
+            if (jellyfish != null)
+            {
+                jellyfish.HitDelay();
+            }
+            Damage();
+        }
+        Coin coin = other.GetComponent<Coin>();
+        if (coin != null)
+        {
+            player.CollectCoin(coin);
         }
     }
 
@@ -93,35 +135,13 @@ public class Boat : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        GameObject other = collision.gameObject;
-        Enemy enemy = other.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            Piranha piranha = other.GetComponent<Piranha>();
-            if (piranha != null)
-            {
-                Destroy(other);
-            }
-            Shark shark = other.GetComponent<Shark>();
-            if (shark != null)
-            {
-                shark.TempDisable();
-            }
-            Jellyfish jellyfish = other.GetComponent<Jellyfish>();
-            if (jellyfish != null)
-            {
-                jellyfish.HitDelay();
-            }
-            Damage();
-        }
-    }
-
     private void Damage()
     {
+        if (smashed || invincible) return;
+
         hitSound.Play();
         health--;
+        SetTempInvincible();
         for (int i = 0; i < maxHealth; i++)
         {
             emptyHearts[i].SetActive(i >= health);
@@ -130,20 +150,30 @@ public class Boat : MonoBehaviour
         if (health <= 0)
         {
             smashed = true;
-            //TODO smash boat
-            Restore();
+            unsmashedSprite = sr.sprite;
+            sr.sprite = smashedSprite;
+            boatRestorePrompt.SetActive(true);
         }
     }
 
-    private void Restore()
+    public void ShowMaze()
+    {
+        Maze maze = Instantiate(mazePrefab, hudCanvas).GetComponent<Maze>();
+        maze.boat = this;
+    }
+
+    public void Restore()
     {
         smashed = false;
+        sr.sprite = unsmashedSprite;
+        boatRestorePrompt.SetActive(false);
         health = maxHealth;
         HideHearts();
         for (int i = 0; i < maxHealth; i++)
         {
             emptyHearts[i].SetActive(false);
         }
+        SetTempInvincible();
     }
 
     private void TryStopCoroutine(Coroutine crt)
@@ -195,7 +225,6 @@ public class Boat : MonoBehaviour
 
     private IEnumerator SummonJellyfish()
     {
-        print("SUMMONING");
         canLand = false;
         MusicManager musicManager = FindObjectOfType<MusicManager>();
         musicManager.SetMusic(null);
@@ -207,5 +236,19 @@ public class Boat : MonoBehaviour
         timerText.text = "";
         Instantiate(jellyfishPrefab, transform.position + Vector3.down * jellySpawnDist, Quaternion.identity);
         musicManager.SetMusic(musicManager.bossMusicSrc);
+    }
+
+    public void SetTempInvincible()
+    {
+        invincible = true;
+        sr.color = partialTransparent;
+        StartCoroutine(Invincibility());
+    }
+
+    private IEnumerator Invincibility()
+    {
+        yield return new WaitForSeconds(invincibleTime);
+        sr.color = Color.white;
+        invincible = false;
     }
 }

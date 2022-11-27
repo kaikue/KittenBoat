@@ -28,16 +28,16 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- secret path in rock spikes (explore to map out, then push rock through)
 			- ✔ dig for buried gem from hint (npc on one island tells you about buried treasure on another)
 			- ✔ jelly zapper machine- farm piranhas
-			- lure enemy, break boat between islands, push rock across, repair boat
-				- easier version: smash against fixed (shark?) hazard (middle island with reward)
 			- sokobans
 				- colored pedestals
 				- gems can fill wrong color holes- push red past green in red hole to accomplish something
+			- lure enemy, break boat between islands, push rock across, repair boat
+				- easier version: smash against fixed (shark?) hazard (middle island with reward)
 			- push gem onto reset button?
 			- hit reset button partway through (cube respawn)?
 				- separate reset buttons per color gem?
 	- boat gameplay
-		- on enemy collide: boat breaks into tiles, need to repair
+		- ✔ on enemy collide: boat breaks into tiles, need to repair
 		- ✔ dodge rocks
 		- ✔ dodge shark patrols
 		- ✔ run from chasing piranhas
@@ -66,33 +66,17 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- boat upgrade (250)
 		- jellyfish statue (500)
 		- winner's trophy (9999)
-- [ ] When you die, you have to rebuild the boat by playing a puzzle game style sequence.
-	- interact prompt
-	- restaurant menu worksheet style maze
-		- Puzzle Game Style Sequence
-		- Your boat died and went to Davy Jones' Locker (Boat version of Hell). Guide it back to the land of the living!
-		- draw marker immediately red inside maze
-		- dont allow drawing outside paper
-		- pause rest of game (player movement, enemy movement)
-		- cancel button
-		- sweep in from bottom when spawned
-		- solve- scroll out to bottom, play solve sound, restore boat, stop music override, destroy
-		- scroll sprite
-		- shop music override
-	- boat trivia?
-	- turn blocks puzzle?
+- [x] When you die, you have to rebuild the boat by playing a puzzle game style sequence.
 - [ ] There is an enemy (jellyfish) who appears when the timer runs out and tries to get you.
 	- when killed drops 9999 gold & platinum
 
 - Misc
-	- how do sharks handle smashed boat?
-	- collect coins from boat
-	- boat smashing/rebuilding
 	- puzzles
 		- hidden rock path puzzle
-		- boat smash puzzle
 		- sokobans
+		- boat smash puzzle
 	- jellyfish art
+	- jellyfish coins spawn
 	- more decoration tiles
 	- world
 		- lay out islands
@@ -101,7 +85,8 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- place enemies
 		- distribute gold (550 each in shallow & deep)
 			- some in hub
-			- floating treasure piles in ocean? (surrounded by enemies?)
+			- floating treasure piles in ocean (some surrounded by enemies)
+			- coin trails in ocean
 		- decorate with rocks
 		- clean up island edges
 		- fill with water
@@ -114,20 +99,27 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- dont put 3 trees on one island because that would mess up riddle
 		- kitten at 0,0; boat at 3.5,0
 	- winner's trophy- on obtain, go to end screen
+	- start/end menus
+		- menu music- Pirate1 Theme1
+		- ending music- Treasure Hunter
+	- maze scroll/paper sprite
 	- pause button?
 	- button tutorials
 		- just text on main menu?
 		- movement
 		- interact (first NPC)
-	- start/end menus
-		- menu music- Pirate1 Theme1
-		- ending music- Treasure Hunter
 	- fix button prompt starting as gamepad? (global check)
 	- animate water tiles?
-- Sounds
-	- piranhas?
-	- button press/unpress
-	- cat meows?
+	- Sounds
+		- piranhas?
+		- button press/unpress
+		- cat meows?
+	- playtest
+		- self
+		- other
+	- build
+	- itch page
+		- screenshots
 
 ## Credits
 

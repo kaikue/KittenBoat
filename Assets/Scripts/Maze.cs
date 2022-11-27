@@ -11,6 +11,17 @@ public class Maze : MonoBehaviour
     private HashSet<Vector3> markerPositions = new HashSet<Vector3>();
     private Vector2 markerSize;
     private bool solved = false;
+    private AudioSource audioSource;
+    public AudioClip solveClip;
+    public AudioClip closeClip;
+    private MusicManager musicManager;
+    private const float hideY = -400;
+    private const float showY = 0;
+    private const float showTime = 0.75f;
+    private const float deleteWaitTime = 2;
+    [HideInInspector]
+    public Boat boat;
+    private Player player;
 
     private int mazeSize;
     private int cellSize;
@@ -27,6 +38,16 @@ public class Maze : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(ScrollIn());
+        audioSource = GetComponent<AudioSource>();
+        musicManager = FindObjectOfType<MusicManager>();
+        musicManager.SetMusicOverride(musicManager.shopMusicSrc);
+        player = FindObjectOfType<Player>();
+        if (player != null)
+        {
+            player.paused = true;
+        }
+
         markerSize = mazeMarkerPrefab.GetComponent<BoxCollider2D>().size;
         mazeSize = (int)mazeZone.rect.size.x;
         cellSize = (int)mazeWallPrefab.GetComponent<BoxCollider2D>().size.y;
@@ -43,12 +64,20 @@ public class Maze : MonoBehaviour
             Vector3 position = Input.mousePosition;
             if (!markerPositions.Contains(position))
             {
-                Collider2D wall = Physics2D.OverlapBox(position, markerSize, 0, LayerMask.GetMask("MazeWall"));
-                if (wall == null)
+                Collider2D[] colls = Physics2D.OverlapBoxAll(position, markerSize, 0, LayerMask.GetMask("UI"));
+                foreach(Collider2D coll in colls)
                 {
-                    MazeMarker mazeMarker = Instantiate(mazeMarkerPrefab, position, Quaternion.identity, transform).GetComponent<MazeMarker>();
-                    mazeMarker.maze = this;
-                    markerPositions.Add(position);
+                    if (coll.gameObject.CompareTag("MazePaper"))
+                    {
+                        Collider2D wall = Physics2D.OverlapBox(position, markerSize, 0, LayerMask.GetMask("MazeWall"));
+                        if (wall == null)
+                        {
+                            MazeMarker mazeMarker = Instantiate(mazeMarkerPrefab, position, Quaternion.identity, transform).GetComponent<MazeMarker>();
+                            mazeMarker.maze = this;
+                            markerPositions.Add(position);
+                        }
+                        break;
+                    }
                 }
             }
         }
@@ -169,8 +198,50 @@ public class Maze : MonoBehaviour
     {
         if (solved) return;
         solved = true;
-        //TODO
-        print("SOLVE");
+        if (boat != null) boat.Restore();
+        Close(true);
+    }
+
+    public void Cancel()
+    {
+        print("CANCEL");
+        Close(false);
+    }
+
+    private void Close(bool success)
+    {
+        musicManager.StopMusicOverride();
+        audioSource.PlayOneShot(success ? solveClip : closeClip);
+        if (player != null)
+        {
+            player.paused = false;
+        }
+        StartCoroutine(ScrollOut());
+    }
+
+    private IEnumerator ScrollOut()
+    {
+        for (float t = 0; t < showTime; t += Time.deltaTime)
+        {
+            float y = Mathf.Lerp(showY, hideY, t / showTime);
+            transform.position = new Vector2(transform.position.x, y);
+            yield return null;
+        }
+        transform.position = new Vector2(transform.position.x, hideY);
+        yield return new WaitForSeconds(deleteWaitTime);
         Destroy(gameObject);
+    }
+
+    private IEnumerator ScrollIn()
+    {
+        RectTransform transform = GetComponent<RectTransform>();
+        transform.anchoredPosition = new Vector2(transform.anchoredPosition.x, hideY);
+        for (float t = 0; t < showTime; t += Time.deltaTime)
+        {
+            float y = Mathf.Lerp(hideY, showY, t / showTime);
+            transform.anchoredPosition = new Vector2(transform.anchoredPosition.x, y);
+            yield return null;
+        }
+        transform.anchoredPosition = new Vector2(transform.anchoredPosition.x, showY);
     }
 }

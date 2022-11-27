@@ -7,16 +7,20 @@ public class Piranha : Enemy
     private const float speed = 3;
     private const float despawnDistance = 20;
     private Boat boat;
+    private Player player;
     private Rigidbody2D rb;
 
     private void Start()
     {
         boat = FindObjectOfType<Boat>();
+        player = FindObjectOfType<Player>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
+        if (player.paused) return;
+
         Vector2 currentPos = rb.position;
         Vector2 diff = boat.transform.position - transform.position;
         if (diff.magnitude > despawnDistance || boat.smashed)

@@ -10,21 +10,21 @@ public class Shark : Enemy
     private const float snapDist = 0.2f;
     private const float speed = 3;
     private Rigidbody2D rb;
-    private BoxCollider2D bc;
-    private SpriteRenderer sr;
-    private Color partialTransparent = new Color(1, 1, 1, 0.7f);
-    private const float disableTime = 3f;
+    private Boat boat;
+    private Player player;
 
     private void Start()
     {
         goalI = startI;
         rb = GetComponent<Rigidbody2D>();
-        bc = GetComponent<BoxCollider2D>();
-        sr = GetComponent<SpriteRenderer>();
+        boat = FindObjectOfType<Boat>();
+        player = FindObjectOfType<Player>();
     }
 
     private void FixedUpdate()
     {
+        if (player.paused || boat.smashed) return;
+
         Vector2 currentPos = rb.position;
         Vector2 goalPos = patrolPoints[goalI].position;
         if (Vector2.Distance(currentPos, goalPos) < snapDist)
@@ -45,19 +45,5 @@ public class Shark : Enemy
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             rb.rotation = angle;
         }
-    }
-
-    public void TempDisable()
-    {
-        bc.enabled = false;
-        sr.color = partialTransparent;
-        StartCoroutine(ReEnable());
-    }
-
-    private IEnumerator ReEnable()
-    {
-        yield return new WaitForSeconds(disableTime);
-        bc.enabled = true;
-        sr.color = Color.white;
     }
 }

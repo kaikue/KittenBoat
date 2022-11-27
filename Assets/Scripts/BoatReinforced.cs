@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class BoatReinforced : ItemGet
 {
+    public Sprite sprite;
+
     protected override void Start()
     {
         Boat boat = FindObjectOfType<Boat>();
-        transform.parent = boat.transform;
-        transform.localPosition = Vector3.zero;
+        boat.gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
         //TODO destroy deepwater barriers
         base.Start();
+        Destroy(gameObject);
     }
 }

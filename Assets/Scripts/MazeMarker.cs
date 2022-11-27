@@ -19,29 +19,32 @@ public class MazeMarker : MonoBehaviour
     private void Start()
     {
         image = GetComponent<Image>();
-        image.color = inactiveColor;
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        GameObject other = collision.gameObject;
-        if (other.CompareTag("MazeStartZone"))
+        image.color = inactiveColor;
+        Collider2D[] overlap = Physics2D.OverlapBoxAll(transform.position, GetComponent<BoxCollider2D>().size, 0, LayerMask.GetMask("UI"));
+        foreach (Collider2D coll in overlap)
         {
-            image.color = activeColor;
-            connectedStart = true;
-            inMaze = true;
+            GameObject other = coll.gameObject;
+            if (other.CompareTag("MazeStartZone") ||
+                other.CompareTag("MazeEndZone") ||
+                other.CompareTag("MazeZone"))
+            {
+                image.color = activeColor;
+                inMaze = true;
+            }
+            if (other.CompareTag("MazeStartZone"))
+            {
+                connectedStart = true;
+            }
+            if (other.CompareTag("MazeEndZone"))
+            {
+                connectedEnd = true;
+            }
         }
-        if (other.CompareTag("MazeEndZone"))
+        if (!inMaze)
         {
-            image.color = activeColor;
-            connectedEnd = true;
-            inMaze = true;
-        }
-        if (other.CompareTag("MazeZone"))
-        {
-            image.color = activeColor;
-            inMaze = true;
+            rb.sleepMode = RigidbodySleepMode2D.StartAwake;
+            rb.Sleep();
         }
     }
 
@@ -49,14 +52,8 @@ public class MazeMarker : MonoBehaviour
     {
         GameObject other = collision.gameObject;
         MazeMarker mazeMarker = other.GetComponent<MazeMarker>();
-        if (mazeMarker != null)
+        if (mazeMarker != null && inMaze)
         {
-            if (!inMaze)
-            {
-                rb.sleepMode = RigidbodySleepMode2D.StartAwake;
-                rb.Sleep();
-                return;
-            }
             if (mazeMarker.connectedStart)
             {
                 connectedStart = true;
