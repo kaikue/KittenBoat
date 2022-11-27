@@ -68,7 +68,17 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- winner's trophy (9999)
 - [ ] When you die, you have to rebuild the boat by playing a puzzle game style sequence.
 	- interact prompt
-	- shop music
+	- restaurant menu worksheet style maze
+		- Puzzle Game Style Sequence
+		- Your boat died and went to Davy Jones' Locker (Boat version of Hell). Guide it back to the land of the living!
+		- draw marker immediately red inside maze
+		- dont allow drawing outside paper
+		- pause rest of game (player movement, enemy movement)
+		- cancel button
+		- sweep in from bottom when spawned
+		- solve- scroll out to bottom, play solve sound, restore boat, stop music override, destroy
+		- scroll sprite
+		- shop music override
 	- boat trivia?
 	- turn blocks puzzle?
 - [ ] There is an enemy (jellyfish) who appears when the timer runs out and tries to get you.

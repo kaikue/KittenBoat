@@ -8,6 +8,9 @@ TagManager:
   - BoatFreezer
   - HubZone
   - DeepwaterZone
+  - MazeZone
+  - MazeStartZone
+  - MazeEndZone
   layers:
   - Default
   - TransparentFX
@@ -29,7 +32,7 @@ TagManager:
   - PiranhaNest
   - Jellyfish
   - LaserButton
-  - 
+  - MazeWall
   - 
   - 
   - 
