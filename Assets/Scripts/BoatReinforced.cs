@@ -10,7 +10,7 @@ public class BoatReinforced : ItemGet
     {
         Boat boat = FindObjectOfType<Boat>();
         boat.gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
-        //TODO destroy deepwater barriers
+        Destroy(GameObject.Find("DeepwaterBarriers"));
         base.Start();
         Destroy(gameObject);
     }

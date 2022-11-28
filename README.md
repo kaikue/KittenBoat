@@ -18,6 +18,9 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- ✔ push rocks into matching pattern as inaccessible part
 			- sokobans
 				- fill in middle hole first to make path to right one
+				- fill in certain order- closest blocks off farthest so need to do farthest first
+				- open up path around + intersection bottleneck
+				- block yourself in & reset to get out
 			- ✔ push rock across 1 tile corner from boat
 			- ✔ talk to rock NPC next to hole multiple times
 			- ✔ facilitate npc romance
@@ -25,17 +28,17 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- deepwater islands (need upgrade): colored gems
 			- ✔ push gems into 4 corners of diamond island corresponding to boat directions
 			- ✔ push gems into order according to npc dance
-			- secret path in rock spikes (explore to map out, then push rock through)
+			- ✔ secret path in rock spikes (explore to map out, then push rock through)
 			- ✔ dig for buried gem from hint (npc on one island tells you about buried treasure on another)
 			- ✔ jelly zapper machine- farm piranhas
 			- sokobans
 				- colored pedestals
-				- gems can fill wrong color holes- push red past green in red hole to accomplish something
-			- lure enemy, break boat between islands, push rock across, repair boat
-				- easier version: smash against fixed (shark?) hazard (middle island with reward)
-			- push gem onto reset button?
-			- hit reset button partway through (cube respawn)?
-				- separate reset buttons per color gem?
+				- ~~gems can fill wrong color holes- push red past green in red hole to accomplish something~~
+			- ~~lure enemy, break boat between islands, push rock across, repair boat~~
+				- ~~easier version: smash against fixed (shark?) hazard (middle island with reward)~~
+			- ~~push gem onto reset button?~~
+			- ~~hit reset button partway through (cube respawn)?~~
+				- ~~separate reset buttons per color gem?~~
 	- boat gameplay
 		- ✔ on enemy collide: boat breaks into tiles, need to repair
 		- ✔ dodge rocks
@@ -70,12 +73,9 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 - [x] There is an enemy (jellyfish) who appears when the timer runs out and tries to get you.
 
 - Misc
-	- better frog joke
 	- puzzles
-		- hidden rock path puzzle
 		- sokobans
-		- boat smash puzzle
-	- jellyfish art
+		- ~~boat smash puzzle~~
 	- more decoration tiles
 	- world
 		- lay out islands
@@ -89,11 +89,11 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 		- decorate with rocks
 		- clean up island edges
 		- fill with water
+			- change camera bg color to highlight missing water
 		- surround with rocks
 		- make sure crab works for each shopkeeper
 		- place hub music & deepwater music zones
 		- deepwater barriers
-			- reinforced hull destroy deepwater barriers on create
 		- decorate islands
 			- dont put 3 trees on one island because that would mess up riddle
 		- kitten at 0,0; boat at 3.5,0
