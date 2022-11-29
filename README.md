@@ -16,11 +16,10 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- ✔ tutorial- push rock into hole
 			- ✔ push rocks into 4 corner pits of diamond island
 			- ✔ push rocks into matching pattern as inaccessible part
-			- sokobans
+			- ✔ sokobans
 				- fill in middle hole first to make path to right one
 				- fill in certain order- closest blocks off farthest so need to do farthest first
 				- open up path around + intersection bottleneck
-				- block yourself in & reset to get out
 			- ✔ push rock across 1 tile corner from boat
 			- ✔ talk to rock NPC next to hole multiple times
 			- ✔ facilitate npc romance
@@ -33,6 +32,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- ✔ jelly zapper machine- farm piranhas
 			- sokobans
 				- colored pedestals
+				- block yourself in & reset to get out?
 				- ~~gems can fill wrong color holes- push red past green in red hole to accomplish something~~
 			- ~~lure enemy, break boat between islands, push rock across, repair boat~~
 				- ~~easier version: smash against fixed (shark?) hazard (middle island with reward)~~
@@ -74,12 +74,11 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 
 - Misc
 	- puzzles
-		- sokobans
-		- ~~boat smash puzzle~~
+		- last sokobans
 	- more decoration tiles
 	- world
-		- lay out islands
 		- place puzzles
+		- surround map edges with rocks
 		- surround caves with rocks & fill in cave floors
 		- place enemies
 		- distribute gold (550 each in shallow & deep)
@@ -88,9 +87,9 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- coin trails in ocean
 		- decorate with rocks
 		- clean up island edges
+		- check puzzlezones
 		- fill with water
 			- change camera bg color to highlight missing water
-		- surround with rocks
 		- make sure crab works for each shopkeeper
 		- place hub music & deepwater music zones
 		- deepwater barriers
@@ -110,6 +109,8 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 	- build
 	- itch page
 		- screenshots
+			- dialog, sail, puzzle
+		- document reset in itch description: R (keyboard) or Y (gamepad): Reset puzzle (if the kitten gets stuck)
 
 ## Credits
 

@@ -71,6 +71,8 @@ public class Player : MonoBehaviour
 
     private Boat boat;
 
+    private PuzzleResetZone resetZone;
+
     private void Start()
     {
         boat = FindObjectOfType<Boat>();
@@ -126,6 +128,13 @@ public class Player : MonoBehaviour
                 else if (interactableNPC != null)
                 {
                     interactableNPC.Interact(this);
+                }
+            }
+            if (Input.GetButtonDown("Reset"))
+            {
+                if (resetZone != null)
+                {
+                    rb.position = resetZone.resetButton.transform.position;
                 }
             }
         }
@@ -243,6 +252,11 @@ public class Player : MonoBehaviour
         {
             caveCeiling.Enter();
         }
+        PuzzleResetZone puzzleResetZone = other.GetComponent<PuzzleResetZone>();
+        if (puzzleResetZone != null)
+        {
+            resetZone = puzzleResetZone;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -282,6 +296,11 @@ public class Player : MonoBehaviour
         if (caveCeiling != null)
         {
             caveCeiling.Exit();
+        }
+        PuzzleResetZone puzzleResetZone = other.GetComponent<PuzzleResetZone>();
+        if (puzzleResetZone != null)
+        {
+            resetZone = null;
         }
     }
 
