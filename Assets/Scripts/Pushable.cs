@@ -19,14 +19,16 @@ public class Pushable : Resettable
         rb.velocity = Vector2.zero;
     }
 
-    public void PushDirection(Vector2 direction)
+    public bool PushDirection(Vector2 direction)
     {
         Vector2 newPos = rb.position + direction.normalized;
         Collider2D collider = Physics2D.OverlapBox(newPos, size, 0, LayerMask.GetMask("BoatWalls", "Player", "RockTiles", "WaterTiles", "Pushable"));
         if (collider == null)
         {
             rb.MovePosition(newPos);
+            return true;
         }
+        return false;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

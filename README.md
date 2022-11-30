@@ -30,7 +30,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 			- ✔ secret path in rock spikes (explore to map out, then push rock through)
 			- ✔ dig for buried gem from hint (npc on one island tells you about buried treasure on another)
 			- ✔ jelly zapper machine- farm piranhas
-			- sokobans
+			- ✔ sokobans
 				- colored pedestals
 				- block yourself in & reset to get out?
 				- ~~gems can fill wrong color holes- push red past green in red hole to accomplish something~~
@@ -73,44 +73,31 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 - [x] There is an enemy (jellyfish) who appears when the timer runs out and tries to get you.
 
 - Misc
-	- puzzles
-		- last sokobans
-	- more decoration tiles
-	- world
-		- place puzzles
-		- surround map edges with rocks
-		- surround caves with rocks & fill in cave floors
-		- place enemies
-		- distribute gold (550 each in shallow & deep)
-			- some in hub
-			- floating treasure piles in ocean (some surrounded by enemies)
-			- coin trails in ocean
-		- decorate with rocks
-		- clean up island edges
-		- check puzzlezones
-		- fill with water
-			- change camera bg color to highlight missing water
-		- make sure crab works for each shopkeeper
-		- place hub music & deepwater music zones
-		- deepwater barriers
-		- decorate islands
-			- dont put 3 trees on one island because that would mess up riddle
-		- kitten at 0,0; boat at 3.5,0
-	- maze scroll/paper sprite
-	- pause button?
-	- fix button prompt starting as gamepad? (global check)
-	- sounds
-		- piranhas?
-		- button press/unpress
-		- cat meows?
+	- build (web, desktop?)
 	- playtest
 		- self
+			- make sure crab works for each shopkeeper
 		- other
-	- build
 	- itch page
 		- screenshots
 			- dialog, sail, puzzle
-		- document reset in itch description: R (keyboard) or Y (gamepad): Reset puzzle (if the kitten gets stuck)
+		- controls table: R (keyboard) or Y (gamepad): Reset puzzle (if the kitten gets stuck)
+		- description
+			- Features:
+				- Colorful cast of characters
+				- Nautical action
+				- Block sliding puzzles
+	- bonus
+		- maze scroll/paper sprite
+		- pause button?
+		- fix button prompt starting as gamepad? (global check)
+		- sounds
+			- piranhas?
+			- button press/unpress
+			- cat meows?
+		- decorate islands
+			- more decoration tiles
+			- dont put 3 trees on one island because that would mess up riddle
 
 ## Credits
 

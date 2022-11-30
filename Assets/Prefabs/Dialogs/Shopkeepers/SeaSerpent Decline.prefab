@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[0].text
-      value: Not everyone is cut out for adventure.
+      value: I'll be here if you need me.
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[1].text

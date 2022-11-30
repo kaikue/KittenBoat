@@ -22,21 +22,25 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
-        currentMusicSrc = mainIslandMusicSrc;
-        currentMusicSrc.Play();
         baseVolumes = new Dictionary<AudioSource, float>();
         AudioSource[] audioSources = {
             boatMusicSrc,
             mainIslandMusicSrc,
             puzzleIslandMusicSrc,
             shopMusicSrc,
+            crabMusicSrc,
             deepIslandMusicSrc,
             bossMusicSrc,
         };
         foreach (AudioSource audioSource in audioSources)
         {
             baseVolumes.Add(audioSource, audioSource.volume);
+            audioSource.volume = 0;
         }
+
+        currentMusicSrc = mainIslandMusicSrc;
+        currentMusicSrc.volume = baseVolumes[currentMusicSrc];
+        currentMusicSrc.Play();
     }
 
     public void SetMusic(AudioSource newMusic)
@@ -47,7 +51,7 @@ public class MusicManager : MonoBehaviour
         {
             StopCoroutine(crtFadeMusic);
         }
-        StartCoroutine(FadeMusic(newMusic));
+        crtFadeMusic = StartCoroutine(FadeMusic(newMusic));
     }
 
     public void SetMusicOverride(AudioSource newMusic)
@@ -56,11 +60,13 @@ public class MusicManager : MonoBehaviour
         {
             StopCoroutine(crtFadeMusic);
         }
-        if (currentMusicSrc) {
+        if (currentMusicSrc)
+        {
             currentMusicSrc.Pause();
         }
 
         overrideMusicSrc = newMusic;
+        overrideMusicSrc.volume = baseVolumes[overrideMusicSrc];
         overrideMusicSrc.Play();
     }
 
@@ -86,12 +92,12 @@ public class MusicManager : MonoBehaviour
             yield break;
         }
         currentMusicSrc = newSrc;
-        currentMusicSrc.volume = 0;
+        float oldVolume2 = currentMusicSrc.volume;
         currentMusicSrc.Play();
         float newVolume = baseVolumes[currentMusicSrc];
         for (float t = 0; t < musicFadeTime; t += Time.deltaTime)
         {
-            currentMusicSrc.volume = Mathf.Lerp(0, newVolume, t / musicFadeTime);
+            currentMusicSrc.volume = Mathf.Lerp(oldVolume2, newVolume, t / musicFadeTime);
             yield return null;
         }
         currentMusicSrc.volume = newVolume;

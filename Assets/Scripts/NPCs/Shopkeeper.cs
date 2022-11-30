@@ -13,7 +13,7 @@ public class Shopkeeper : NPC
     public int price;
     public GameObject crab;
 
-    protected float crabChance = 0.3f;
+    protected float crabChance = 0.5f;
 
     public override void Interact(Player player)
     {

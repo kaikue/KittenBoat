@@ -62,19 +62,18 @@ public class Boat : MonoBehaviour
         if (smashed || player.paused)
         {
             rb.velocity = Vector2.zero;
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
-        else
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
-        bool leftHit = Physics2D.Raycast(rb.position + new Vector2(-2.575f, -0.875f / 2), Vector2.up, 0.875f, LayerMask.GetMask("LandTiles")).collider != null;
+        bool leftHit = Physics2D.Raycast(rb.position + new Vector2(-2.575f, -0.875f / 2), Vector2.up, 0.875f, LayerMask.GetMask("LandTiles")).collider != null
+            && Physics2D.Raycast(rb.position + new Vector2(-2.575f, -0.875f / 2), Vector2.up, 0.875f, LayerMask.GetMask("WaterTiles")).collider == null;
         boatWallLeft.enabled = !canLand || !leftHit;
-        bool rightHit = Physics2D.Raycast(rb.position + new Vector2(2.575f, -0.875f / 2), Vector2.up, 0.875f, LayerMask.GetMask("LandTiles")).collider != null;
+        bool rightHit = Physics2D.Raycast(rb.position + new Vector2(2.575f, -0.875f / 2), Vector2.up, 0.875f, LayerMask.GetMask("LandTiles")).collider != null
+            && Physics2D.Raycast(rb.position + new Vector2(2.575f, -0.875f / 2), Vector2.up, 0.875f, LayerMask.GetMask("WaterTiles")).collider == null;
         boatWallRight.enabled = !canLand || !rightHit;
-        bool topHit = Physics2D.Raycast(rb.position + new Vector2(-1.625f / 2, 2.2f), Vector2.right, 1.625f, LayerMask.GetMask("LandTiles")).collider != null;
+        bool topHit = Physics2D.Raycast(rb.position + new Vector2(-1.625f / 2, 2.2f), Vector2.right, 1.625f, LayerMask.GetMask("LandTiles")).collider != null
+            && Physics2D.Raycast(rb.position + new Vector2(-1.625f / 2, 2.2f), Vector2.right, 1.625f, LayerMask.GetMask("WaterTiles")).collider == null;
         boatWallTop.enabled = !canLand || !topHit;
-        bool bottomHit = Physics2D.Raycast(rb.position + new Vector2(-1.625f / 2, -2.2f), Vector2.right, 1.625f, LayerMask.GetMask("LandTiles")).collider != null;
+        bool bottomHit = Physics2D.Raycast(rb.position + new Vector2(-1.625f / 2, -2.2f), Vector2.right, 1.625f, LayerMask.GetMask("LandTiles")).collider != null
+            && Physics2D.Raycast(rb.position + new Vector2(-1.625f / 2, -2.2f), Vector2.right, 1.625f, LayerMask.GetMask("WaterTiles")).collider == null;
         boatWallBottom.enabled = !canLand || !bottomHit;
         if (canLand && (leftHit || rightHit || topHit || bottomHit)) {
             flagRenderer.sprite = flagInactiveSprite;
@@ -153,6 +152,7 @@ public class Boat : MonoBehaviour
             unsmashedSprite = sr.sprite;
             sr.sprite = smashedSprite;
             boatRestorePrompt.SetActive(true);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 
@@ -168,6 +168,7 @@ public class Boat : MonoBehaviour
         sr.sprite = unsmashedSprite;
         boatRestorePrompt.SetActive(false);
         health = maxHealth;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         HideHearts();
         for (int i = 0; i < maxHealth; i++)
         {

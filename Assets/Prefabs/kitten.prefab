@@ -43,7 +43,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.16078432, g: 0.6784314, b: 1, a: 0}
+  m_BackGroundColor: {r: 1, g: 0.1607843, b: 0.9694715, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -218,6 +218,13 @@ MonoBehaviour:
   sfxCoin: {fileID: 8300000, guid: 765b2af2b29171c44a0ff304960ed22a, type: 3}
   sfxPush: {fileID: 8300000, guid: 82d56feaab28f84419cdeea522ab81a0, type: 3}
   sfxDialogClose: {fileID: 8300000, guid: c8e2fd8149596a94899b8707ba842b99, type: 3}
+  hasLetter: 0
+  deliveredLetter: 0
+  hasJellyStatue: 0
+  killedJellyfish: 0
+  hasTrophy: 0
+  endFadeOverlay: {fileID: 0}
+  paused: 0
 --- !u!50 &1917018177102095973
 Rigidbody2D:
   serializedVersion: 4

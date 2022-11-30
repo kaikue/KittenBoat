@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
 
     private Coroutine crtPush;
     private const float pushTime = 0.3f;
+    private Pushable pushed;
 
     [HideInInspector]
     public int coins = 0;
@@ -165,6 +166,7 @@ public class Player : MonoBehaviour
         {
             TryStopCoroutine(crtPush);
             crtPush = StartCoroutine(Push(pushable, -collision.GetContact(0).normal));
+            pushed = pushable;
         }
     }
 
@@ -173,9 +175,10 @@ public class Player : MonoBehaviour
         GameObject other = collision.gameObject;
 
         Pushable pushable = other.GetComponent<Pushable>();
-        if (pushable != null)
+        if (pushable != null && pushable == pushed)
         {
             TryStopCoroutine(crtPush);
+            pushed = null;
         }
     }
 
@@ -331,8 +334,10 @@ public class Player : MonoBehaviour
         {
             if (timer <= 0)
             {
-                pushable.PushDirection(direction);
-                sfx.PlayOneShot(sfxPush);
+                if (pushable.PushDirection(direction))
+                {
+                    sfx.PlayOneShot(sfxPush);
+                }
                 break;
             }
             Vector2 moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -365,7 +370,8 @@ public class Player : MonoBehaviour
     public void AddCoins(int value)
     {
         coins += value;
-        coinsText.text = Mathf.Clamp(coins, 0, 9999).ToString();
+        coins = Mathf.Clamp(coins, 0, 9999);
+        coinsText.text = coins.ToString();
         TryStopCoroutine(crtShowCoins);
         crtShowCoins = StartCoroutine(ShowCoins(2));
     }
