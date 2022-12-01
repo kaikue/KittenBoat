@@ -140,8 +140,9 @@ public class Player : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.K))
             {
-                rb.position = Vector2.zero;
+                rb.position = new Vector2(2.5f, 0);
                 boat.rb.position = new Vector2(3.5f, 0);
+                boat.rb.velocity = Vector2.zero;
             }
         }
     }
