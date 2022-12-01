@@ -138,6 +138,11 @@ public class Player : MonoBehaviour
                     rb.position = resetZone.resetButton.transform.position;
                 }
             }
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                rb.position = Vector2.zero;
+                boat.rb.position = new Vector2(3.5f, 0);
+            }
         }
     }
 

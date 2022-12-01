@@ -10,7 +10,7 @@ public class Pushable : Resettable
     protected override void Start()
     {
         base.Start();
-        size = boxCollider.bounds.size;
+        size = new Vector2(0.5f, 0.5f);
         rb = GetComponent<Rigidbody2D>();
     }
 

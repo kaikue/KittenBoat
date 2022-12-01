@@ -24,7 +24,8 @@ public class PiranhaSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (piranhaSpawned == null && Vector3.Distance(boat.transform.position, transform.position) <= spawnDist && !boat.smashed && !player.paused)
+            if (piranhaSpawned == null && Vector3.Distance(boat.transform.position, transform.position) <= spawnDist 
+                && !boat.smashed && !player.paused && player.gameObject.layer == LayerMask.NameToLayer("PlayerBoat"))
             {
                 piranhaSpawned = Instantiate(piranhaPrefab, transform.position, Quaternion.identity);
             }

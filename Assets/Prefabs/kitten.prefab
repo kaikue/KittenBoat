@@ -216,7 +216,7 @@ MonoBehaviour:
   coinsText: {fileID: 0}
   coinsTransform: {fileID: 0}
   sfxCoin: {fileID: 8300000, guid: 765b2af2b29171c44a0ff304960ed22a, type: 3}
-  sfxPush: {fileID: 8300000, guid: 82d56feaab28f84419cdeea522ab81a0, type: 3}
+  sfxPush: {fileID: 8300000, guid: 190bc297b88cdc446b8dc5e34c574700, type: 3}
   sfxDialogClose: {fileID: 8300000, guid: c8e2fd8149596a94899b8707ba842b99, type: 3}
   hasLetter: 0
   deliveredLetter: 0

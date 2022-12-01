@@ -56,7 +56,7 @@ public class Jellyfish : Enemy
             Destroy(gameObject);
             Player player = FindObjectOfType<Player>();
             player.killedJellyfish = true;
-            player.GetComponent<AudioSource>().volume = 0.2f; //hacky but WHATEVER...
+            player.GetComponent<AudioSource>().volume = 0.5f; //hacky but WHATEVER...
             boat.canLand = true;
             MusicManager musicManager = FindObjectOfType<MusicManager>();
             musicManager.SetMusic(null);

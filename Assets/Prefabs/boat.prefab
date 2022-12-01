@@ -812,6 +812,7 @@ MonoBehaviour:
   mazePrefab: {fileID: 7238375156813433059, guid: f7973031c955435408736c3c1604bde3, type: 3}
   hudCanvas: {fileID: 0}
   smashedSprite: {fileID: 21300000, guid: 703ed12d8436ed34385ab1d6642fdf53, type: 3}
+  boatRestorePrompt: {fileID: 0}
 --- !u!70 &2620490409968860027
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -859,7 +860,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 746173fc077d8a24e92b9a7e968ad30d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6f97ec536245af04aba070ef29d325b1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1

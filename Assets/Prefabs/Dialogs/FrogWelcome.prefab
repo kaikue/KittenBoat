@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[3].text
-      value: I store it in my "river bank" (Frog joke).
+      value: I store it in my "river bank." (Frog joke)
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: f313ba1c6f0c2004f940780b3832550d, type: 3}
       propertyPath: dialogLines.Array.data[4].text

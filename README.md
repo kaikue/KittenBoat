@@ -10,7 +10,7 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 - [x] The kitten can ride a boat sometimes.
 - [x] When you try to buy from the shop there's a random chance something bad happens.
 - [x] The boat is hard to control precisely.
-- [ ] There must be island gameplay and boat gameplay.
+- [x] There must be island gameplay and boat gameplay.
 	- island gameplay
 		- puzzles:
 			- ✔ tutorial- push rock into hole
@@ -72,39 +72,25 @@ A game that you hate but it has a cute kitten in it, so it's impossible to insul
 - [x] When you die, you have to rebuild the boat by playing a puzzle game style sequence.
 - [x] There is an enemy (jellyfish) who appears when the timer runs out and tries to get you.
 
-- Misc
-	- build (web, desktop?)
-	- playtest
-		- self
-			- make sure crab works for each shopkeeper
-		- other
-	- itch page
-		- screenshots
-			- dialog, sail, puzzle
-		- controls table: R (keyboard) or Y (gamepad): Reset puzzle (if the kitten gets stuck)
-		- description
-			- Features:
-				- Colorful cast of characters
-				- Nautical action
-				- Block sliding puzzles
-	- bonus
-		- maze scroll/paper sprite
-		- pause button?
-		- fix button prompt starting as gamepad? (global check)
-		- sounds
-			- piranhas?
-			- button press/unpress
-			- cat meows?
-		- decorate islands
-			- more decoration tiles
-			- dont put 3 trees on one island because that would mess up riddle
+- Misc polish
+	- maze scroll/paper sprite
+	- pause button?
+	- fix button prompt starting as gamepad? (global check)
+	- sounds
+		- piranhas?
+		- button press/unpress
+		- cat meows?
+	- decorate islands
+		- more decoration tiles
+		- dont put 3 trees on one island because that would mess up riddle
 
 ## Credits
 
-Font: Softsquare Mono by Chevy Ray https://chevyray.itch.io/pixel-fonts
-Menu fonts: Arial Rounded MT Bold, Gabriola
+- Uses the PICO-8 Palette: https://lospec.com/palette-list/pico-8
+- Font: Softsquare Mono by Chevy Ray https://chevyray.itch.io/pixel-fonts
+- Menu fonts: Arial Rounded MT Bold, Gabriola
 
-###Sounds
+### Sounds
 
 - Ambience, Seaside Waves, Close, A by InspectorJ (www.jshaw.co.uk) of Freesound.org: https://freesound.org/people/InspectorJ/sounds/400632/
 - https://opengameart.org/content/level-up-power-up-coin-get-13-sounds
