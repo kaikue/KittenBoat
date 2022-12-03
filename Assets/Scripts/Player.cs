@@ -122,13 +122,17 @@ public class Player : MonoBehaviour
 
             if (Input.GetButtonDown("Interact"))
             {
-                if (boat.smashed)
+                Crab crab = FindObjectOfType<Crab>();
+                if (crab == null)
                 {
-                    boat.ShowMaze();
-                }
-                else if (interactableNPC != null)
-                {
-                    interactableNPC.Interact(this);
+                    if (boat.smashed)
+                    {
+                        boat.ShowMaze();
+                    }
+                    else if (interactableNPC != null)
+                    {
+                        interactableNPC.Interact(this);
+                    }
                 }
             }
             if (Input.GetButtonDown("Reset"))
@@ -204,8 +208,12 @@ public class Player : MonoBehaviour
         GameObject other = collision.gameObject;
         if (other.CompareTag("BoatZone"))
         {
-            gameObject.layer = LayerMask.NameToLayer("PlayerBoat");
-            transform.parent = other.transform.parent;
+            Crab existingCrab = FindObjectOfType<Crab>();
+            if (existingCrab == null)
+            {
+                gameObject.layer = LayerMask.NameToLayer("PlayerBoat");
+                transform.parent = other.transform.parent;
+            }
         }
         if (other.CompareTag("BoatFreezer"))
         {
